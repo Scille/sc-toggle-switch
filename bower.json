@@ -1,0 +1,19 @@
+{
+  "name": "SCILLE_toggle_switch",
+  "version": "0.0.0",
+  "authors": [
+    "duboisR <dubois.rom@gmail.com>"
+  ],
+  "description": "Create toggle switches.",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.13.4",
+    "angular": "~1.4.7"
+  }
+}

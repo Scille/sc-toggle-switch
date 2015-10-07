@@ -1,0 +1,24 @@
+{
+  "name": "SCILLE_toggle_switch",
+  "version": "0.0.0",
+  "description": "Create toggle switches.",
+  "author": "DUBOIS Romain",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "jit-grunt": "~0.9.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-less": "~1.0.1",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-copy": "~0.8.1",
+    "grunt-contrib-coffee": "~0.13.0",
+    "load-grunt-tasks": "~3.3.0",
+    "grunt-newer": "~1.1.1",
+    "grunt-open": "~0.2.3",
+    "grunt-express": "~1.4.1",
+    "grunt-wiredep": "~2.0.0",
+    "grunt-bower": "~0.20.0"
+  }
+}
