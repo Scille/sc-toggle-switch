@@ -13,21 +13,30 @@
 
   <h1>Toggle Switch Example</h1>
 
+  <h2>Usage</h2>
+  <p>Switch Value: {{switchModel}}</p>
+
   <h2>Default</h2>
-  <div toggle-switch-directive ng-model="switchStatus"></div>
+  <div toggle-switch-directive ng-model="switchModel"></div>
 
   <h2>Text</h2>
-  <div toggle-switch-directive ng-model="switchStatus" on-label="Yes" off-label="No"></div>
+  <div toggle-switch-directive ng-model="switchModel" on-label="Yes" off-label="No"></div>
 
   <h2>Knob Text</h2>
-  <div toggle-switch-directive ng-model="switchStatus" knob-label="Show"></div>
+  <div toggle-switch-directive ng-model="switchModel" knob-label="Show"></div>
 
   <h2>Sizes</h2>
-  <div toggle-switch-directive switch-size="xsmall" ng-model="switchStatus"></div></br>
-  <div toggle-switch-directive switch-size="small" ng-model="switchStatus"></div></br>
-  <div toggle-switch-directive switch-size="medium" ng-model="switchStatus"></div></br>
-  <div toggle-switch-directive switch-size="large" ng-model="switchStatus"></div></br>
-  <div toggle-switch-directive switch-size="xlarge" ng-model="switchStatus"></div>
+  <p>
+  <div toggle-switch-directive switch-size="xsmall" ng-model="switchModel"></div></br>
+  <div toggle-switch-directive switch-size="small" ng-model="switchModel"></div></br>
+  <div toggle-switch-directive switch-size="medium" ng-model="switchModel"></div></br>
+  <div toggle-switch-directive switch-size="large" ng-model="switchModel"></div></br>
+  <div toggle-switch-directive switch-size="xlarge" ng-model="switchModel"></div>
+</p>
+
+  <h2>Show as button</h2>
+  <button onclick="test = !test">Click me</button>
+  <div toggle-switch-directive show-as-button="test" ng-model="switchModel"></div></br>
 
   <!-- bower:js -->
   <script src="bower_components/angular/angular.js"></script>

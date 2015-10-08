@@ -7,8 +7,10 @@ angular.module('toggle-switch', [])
     controller: 'toggleSwitchController'
     require: 'ngModel'
     scope:
+      showAsButton: '=?'
       isDisabled: '=?'
       switchSize: '@'
+      switchAnimate: '=?'
       onLabel: '@'
       offLabel: '@'
       knobLabel: '@'
@@ -17,9 +19,13 @@ angular.module('toggle-switch', [])
       offLabelColor: '@'
       knobLabelColor: '@'
       ###
+
     compile: (tElement, tAttrs) ->
+      if (angular.isUndefined(tAttrs.showAsButton))
+        tAttrs.showAsButton = 'false'
+
       if (angular.isUndefined(tAttrs.isDisabled))
-        tAttrs.isDisabled = false
+        tAttrs.isDisabled = 'false'
 
       if (angular.isUndefined(tAttrs.switchSize))
         tAttrs.switchSize = "switch-medium"
@@ -28,6 +34,9 @@ angular.module('toggle-switch', [])
         tAttrs.switchSize = "switch-medium"
       else
         tAttrs.switchSize = "switch-" + tAttrs.switchSize
+
+      if (angular.isUndefined(tAttrs.switchAnimate))
+        tAttrs.switchAnimate = 'true'
 
       if (angular.isUndefined(tAttrs.onLabel))
         tAttrs.onLabel = 'On'
@@ -39,39 +48,33 @@ angular.module('toggle-switch', [])
         # NO-BREAK SPACE Unicode Character
         tAttrs.knobLabel = '\u00a0'
 
-      return
 
-    link: (scope, iElement, iAttrs, ngModelCtrl) ->
-      # The $formatters pipeline. Convert a real model value into a value our view can use.
-      ngModel.$formatters.push (modelValue) ->
-        return modelValue
+      postLink = (scope, iElement, iAttrs, ngModelCtrl) ->
+        console.log(scope)
+        # The $formatters pipeline. Convert a real model value into a value our view can use.
+        ngModelCtrl.$formatters.push (modelValue) ->
+          return modelValue
 
-      # The $parsers Pipeline. Converts the $viewValue into the $modelValue.
-      ngModel.$parsers.push (viewValue) ->
-        return viewValue
+        # The $parsers Pipeline. Converts the $viewValue into the $modelValue.
+        ngModelCtrl.$parsers.push (viewValue) ->
+          return viewValue
 
-      # Updating the UI to reflect $viewValue
-      ngModel.$render = ->
-        scope.model = ngModel.$viewValue
+        # Updating the UI to reflect $viewValue
+        ngModelCtrl.$render = ->
+          scope.model = ngModelCtrl.$viewValue
 
-      # Updating $viewValue when the UI changes
-      scope.toggle = ->
-        scope.model = scope.updateModel()
-        ngModel.$setViewValue(scope.model);
-
-      return
+        # Updating $viewValue when the UI changes
+        scope.$watch 'model', (value) ->
+          if (value?)
+            if (value)
+              scope.switchStatus = "switch-on"
+            else
+              scope.switchStatus = "switch-off"
+            ngModelCtrl.$setViewValue(scope.model)
+          else
+            scope.switchStatus = "switch-undef"
 
 
   .controller 'toggleSwitchController', ($scope) ->
-    $scope.$watch 'model', (value) ->
-      if (value?)
-        if (value)
-          $scope.switchStatus = "switch-on"
-        else
-          $scope.switchStatus = "switch-off"
-      else
-        $scope.switchStatus = "switch-undef"
-
     $scope.updateModel = ->
       $scope.model = !$scope.model
-      return $scope.model

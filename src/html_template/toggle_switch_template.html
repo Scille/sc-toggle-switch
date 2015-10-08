@@ -1,7 +1,14 @@
-<div class="toggle-switch" ng-click="updateModel()" ng-class="[switchSize, { 'disabled': isDisabled }]" role="switch" aria-checked="{{!!model}}">
-  <div ng-class="switchStatus">
-    <span class="switch-left" ng-bind="onLabel"></span>
-    <span class="switch-knob" ng-bind="knobLabel"></span>
-    <span class="switch-right" ng-bind="offLabel"></span>
+<span ng-show="!showAsButton">
+  <div class="toggle-switch" ng-click="updateModel()" ng-class="[ switchSize, { 'disabled' : isDisabled } ]" role="switch" aria-checked="{{!!model}}">
+    <div ng-class="[ switchStatus, { 'switch-animate' : switchAnimate } ]">
+      <span class="switch-left" ng-bind="onLabel"></span>
+      <span class="switch-knob" ng-bind="knobLabel"></span>
+      <span class="switch-right" ng-bind="offLabel"></span>
+    </div>
   </div>
-</div>
+</span>
+<span ng-show="showAsButton" class="input-group">
+  <span ng-show="!model" class="btn btn-danger btn-sm" ng-disabled="uDisabled">Non</span>
+  <span class="btn btn-default btn-sm" ng-disabled="uDisabled">Demandeur</span>
+  <span ng-show="model" class="btn btn-success btn-sm" ng-disabled="uDisabled">Oui</span>
+</span>
