@@ -26,10 +26,10 @@ $ grunt serve
 
 ## Other toogle-switch
 
-see [angular-bootstrap-switch](https://github.com/frapontillo/angular-bootstrap-switch)
-see [bootstrap-switch](https://github.com/nostalgiaz/bootstrap-switch)
-see [angular-toggle-switch](https://github.com/JumpLink/angular-toggle-switch)
-see [angular-toggle-switch](https://github.com/cgarvis/angular-toggle-switch)
+* see [angular-bootstrap-switch](https://github.com/frapontillo/angular-bootstrap-switch)
+* see [bootstrap-switch](https://github.com/nostalgiaz/bootstrap-switch)
+* see [angular-toggle-switch](https://github.com/JumpLink/angular-toggle-switch)
+* see [angular-toggle-switch](https://github.com/cgarvis/angular-toggle-switch)
 
 
 ## Contributors
