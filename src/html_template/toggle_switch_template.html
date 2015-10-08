@@ -1,5 +1,5 @@
 <div class="toggle-switch" ng-click="updateModel()" ng-class="[switchSize, { 'disabled': isDisabled }]" role="switch" aria-checked="{{!!model}}">
-  <div ng-class="{'switch-off': !model, 'switch-on': model}">
+  <div ng-class="switchStatus">
     <span class="switch-left" ng-bind="onLabel"></span>
     <span class="switch-knob" ng-bind="knobLabel"></span>
     <span class="switch-right" ng-bind="offLabel"></span>

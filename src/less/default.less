@@ -40,12 +40,21 @@
   box-shadow: @strBoxShadow;
 }
 
+.BoxSizing (@strBoxSizing) {
+  // Chrome, Safari
+  -webkit-box-sizing: @strBoxSizing;
+  // Firefox
+  -moz-box-sizing: @strBoxSizing;
+  // IE 10+, Opera
+  box-sizing: @strBoxSizing;
+}
+
 .ToggleSwitchSize (@minWidth, @padding, @fontSize, @lineHeight, @minHeight) {
   min-width: @minWidth;
 
   .switch-left,
   .switch-right,
-  .knob {
+  .switch-knob {
     padding-bottom: @padding;
     padding-top: @padding;
     font-size: @fontSize;

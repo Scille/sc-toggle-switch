@@ -63,9 +63,14 @@ angular.module('toggle-switch', [])
 
 
   .controller 'toggleSwitchController', ($scope) ->
-    $scope.$watch 'model', (value, old_value) ->
-      if (value? && !old_value?)
-        console.log("undef")
+    $scope.$watch 'model', (value) ->
+      if (value?)
+        if (value)
+          $scope.switchStatus = "switch-on"
+        else
+          $scope.switchStatus = "switch-off"
+      else
+        $scope.switchStatus = "switch-undef"
 
     $scope.updateModel = ->
       $scope.model = !$scope.model

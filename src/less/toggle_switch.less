@@ -17,6 +17,7 @@
   text-align: left;
   overflow: hidden;
   vertical-align: middle;
+  min-width: 60px;
   .Unselectable();
   .Transition(~"box-shadow ease-in-out .20s");
 
@@ -27,7 +28,7 @@
 
   // Specific toggle-switch size
   &.switch-xsmall {
-    .ToggleSwitchSize(60px, 1px, 10px, 9px, 20px);
+    .ToggleSwitchSize(60px, 2px, 11px, 15px, 20px);
   }
 
   &.switch-small {
@@ -47,16 +48,43 @@
   }
   // [End] Specific toggle-switch size
 
+  span {
+    display: inline-block;
+    cursor: pointer;
+    float: left;
+    width: 33%;
+    padding: 4px;
+    text-align: center;
+    white-space: nowrap;
+    .BoxSizing(~"border-box");
+  }
+
+  > div {
+    position: relative;
+    width: 150%;
+  }
 
 
 
+  // Specific toggle-switch status
+  .switch-on {
+    left: 0%;
+  }
 
+  .switch-off {
+    left: -50%;
+  }
+
+  .switch-undef {
+    left: -25%;
+  }
+  // [End] Specific toggle-switch size
 
   // Default toggle-switch render
   .switch-knob {
     color: @black;
     background: @gray-lighter;
-    border: 3px;
+    width: 34%;
   }
 
   .switch-left {
@@ -66,7 +94,7 @@
 
   .switch-right {
     color: @white;
-    background: @red-lighter
+    background: @red-lighter;
   }
   // [End] Default toggle-switch render
 }
