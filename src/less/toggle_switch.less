@@ -1,35 +1,72 @@
+// IMPORT
+// --------------------------------------
+
+@import "./default.less";
+
+
+
+// CSS
+// --------------------------------------
+
 .toggle-switch {
-    display: inline-block;
-    cursor: pointer;
-    border-radius: 4px;
-    border: 1px solid;
-    border-color: #cccccc;
-    position: relative;
-    text-align: left;
-    overflow: hidden;
-    line-height: 8px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    vertical-align: middle;
-    min-width: 100px;
-    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-}
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: @gray-light;
+  text-align: left;
+  overflow: hidden;
+  vertical-align: middle;
+  .Unselectable();
+  .Transition(~"box-shadow ease-in-out .20s");
 
-.toggle-switch .switch-knob {
-    color: #333333;
-    background: #ffffff;
+  // When we mouse over toggle-switch
+  &:hover {
+    .BoxShadow (~"1px 1px 1px @{gray}");
+  }
+
+  // Specific toggle-switch size
+  &.switch-xsmall {
+    .ToggleSwitchSize(60px, 1px, 10px, 9px, 20px);
+  }
+
+  &.switch-small {
+    .ToggleSwitchSize(80px, 3px, 12px, 18px, 24px);
+  }
+
+  &.switch-medium {
+    .ToggleSwitchSize(100px, 6px, 14px, 20px, 28px);
+  }
+
+  &.switch-large {
+    .ToggleSwitchSize(120px, 9px, 16px, 22px, 32px);
+  }
+
+  &.switch-xlarge {
+    .ToggleSwitchSize(140px, 12px, 18px, 31px, 36px);
+  }
+  // [End] Specific toggle-switch size
+
+
+
+
+
+
+  // Default toggle-switch render
+  .switch-knob {
+    color: @black;
+    background: @gray-lighter;
     border: 3px;
-}
+  }
 
-.toggle-switch .switch-left {
-    color: #fff;
-    background: #428bca;
-}
+  .switch-left {
+    color: @white;
+    background: @blue-lighter;
+  }
 
-.toggle-switch .switch-right {
-    color: #000;
-    background: #eeeeee;
+  .switch-right {
+    color: @white;
+    background: @red-lighter
+  }
+  // [End] Default toggle-switch render
 }

@@ -16,6 +16,19 @@
   <h2>Default</h2>
   <div toggle-switch-directive ng-model="switchStatus"></div>
 
+  <h2>Text</h2>
+  <div toggle-switch-directive ng-model="switchStatus" on-label="Yes" of-label="No"></div>
+
+  <h2>Knob Text</h2>
+  <div toggle-switch-directive ng-model="switchStatus" knob-label="Show"></div>
+
+  <h2>Sizes</h2>
+  <div toggle-switch-directive switch-size="xsmall" ng-model="switchStatus"></div></br>
+  <div toggle-switch-directive switch-size="small" ng-model="switchStatus"></div></br>
+  <div toggle-switch-directive switch-size="medium" ng-model="switchStatus"></div></br>
+  <div toggle-switch-directive switch-size="large" ng-model="switchStatus"></div></br>
+  <div toggle-switch-directive switch-size="xlarge" ng-model="switchStatus"></div>
+
   <!-- bower:js -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>

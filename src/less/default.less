@@ -1,0 +1,87 @@
+// main: toggle-switch.less
+
+
+
+// FUNCTIONS
+// --------------------------------------
+
+.Unselectable () {
+  // Chrome, Safari
+  -webkit-user-select: none;
+  // Firefox
+  -moz-user-select: none;
+  // IE 10+
+  -ms-user-select: none;
+  // Opera
+  -o-user-select: none;
+
+  user-select: none;
+}
+
+.Transition (@strTransition) {
+  // Chrome, Safari
+  -webkit-transition: @strTransition;
+  // Firefox
+  -moz-transition: @strTransition;
+  // IE 10+
+  -ms-transition: @strTransition;
+  // Opera
+  -o-transition: @strTransition;
+
+  transition: @strTransition;
+}
+
+.BoxShadow (@strBoxShadow) {
+  // Chrome, Safari
+  -webkit-box-shadow: @strBoxShadow;
+  // Firefox
+  -moz-box-shadow: @strBoxShadow;
+  // IE 10+, Opera
+  box-shadow: @strBoxShadow;
+}
+
+.ToggleSwitchSize (@minWidth, @padding, @fontSize, @lineHeight, @minHeight) {
+  min-width: @minWidth;
+
+  .switch-left,
+  .switch-right,
+  .knob {
+    padding-bottom: @padding;
+    padding-top: @padding;
+    font-size: @fontSize;
+    line-height: @lineHeight;
+    min-height: @minHeight;
+  }
+}
+
+// VARIABLES
+// --------------------------------------
+
+// COLORS
+@black:         #000000;
+
+@white:         #ffffff;
+
+@gray-darker:   #2a2a2a;
+@gray-dark:     #545454;
+@gray:          #7e7e7e;
+@gray-light:    #a8a8a8;
+@gray-lighter:  #d3d3d3;
+
+@blue-darker:   #000033;
+@blue-dark:     #000066;
+@blue:          #000099;
+@blue-light:    #0000cc;
+@blue-lighter:  #0000ff;
+
+@red-darker:    #330000;
+@red-dark:      #660000;
+@red:           #990000;
+@red-light:     #cc0000;
+@red-lighter:   #ff0000;
+
+@green-darker:    #003300;
+@green-dark:      #006600;
+@green:           #009900;
+@green-light:     #00cc00;
+@green-lighter:   #00ff00;

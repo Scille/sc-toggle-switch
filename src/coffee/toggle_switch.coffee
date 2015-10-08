@@ -8,6 +8,7 @@ angular.module('toggle-switch', [])
     require: 'ngModel'
     scope:
       isDisabled: '=?'
+      switchSize: '@'
       onLabel: '@'
       offLabel: '@'
       knobLabel: '@'
@@ -19,6 +20,14 @@ angular.module('toggle-switch', [])
     compile: (tElement, tAttrs) ->
       if (angular.isUndefined(tAttrs.isDisabled))
         tAttrs.isDisabled = false
+
+      if (angular.isUndefined(tAttrs.switchSize))
+        tAttrs.switchSize = "switch-medium"
+      else if (!tAttrs.switchSize.match("^(xsmall|small|medium|large|xlarge)$"))
+        console.log("Error: switch-size must xsmall|small|medium|large|xlarge")
+        tAttrs.switchSize = "switch-medium"
+      else
+        tAttrs.switchSize = "switch-" + tAttrs.switchSize
 
       if (angular.isUndefined(tAttrs.onLabel))
         tAttrs.onLabel = 'On'
