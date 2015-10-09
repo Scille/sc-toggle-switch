@@ -57,6 +57,13 @@
     <div toggle-switch-directive ng-model="switchModel" border-color="{{borderColor}}" left-label-color="{{leftColor}}" knob-label-color="{{knobColor}}" right-label-color="{{rightColor}}" ></div>
   </div>
 
+  <h2>Animate</h2>
+  <div ng-init="animate = true">
+    <button ng-click="animate = !animate">Click me</button>
+    <p>Animate toggle-switch: {{animate}}</p>
+    <div toggle-switch-directive is-animated="animate" ng-model="switchModel"></div>
+  </div>
+
   <h2>Disabled</h2>
   <div ng-init="disabled = true">
     <button ng-click="disabled = !disabled">Click me</button>
@@ -68,7 +75,7 @@
   <div ng-init="summarize = false">
     <button ng-click="summarize = !summarize">Click me</button>
     <p>Summarize toggle-switch: {{summarize}}</p>
-    <div toggle-switch-directive is-summarize="summarize" ng-model="switchModel" knob-label="TV"></div>
+    <div toggle-switch-directive is-summarised="summarize" ng-model="switchModel" knob-label="TV"></div>
   </div>
 
   <!-- bower:js -->

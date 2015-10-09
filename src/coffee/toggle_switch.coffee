@@ -8,8 +8,8 @@ angular.module('toggle-switch', [])
     require: 'ngModel'
     scope:
       isDisabled: '=?'
-      isSummarize: '=?'
-      isAnimate: '=?'
+      isSummarised: '=?'
+      isAnimated: '=?'
       switchSize: '@'
       leftLabel: '@'
       rightLabel: '@'
@@ -20,14 +20,14 @@ angular.module('toggle-switch', [])
       borderColor: '@'
 
     compile: (tElement, tAttrs) ->
-      if (angular.isUndefined(tAttrs.isSummarize))
-        tAttrs.isSummarize = 'false'
+      if (angular.isUndefined(tAttrs.isSummarised))
+        tAttrs.isSummarised = 'false'
 
       if (angular.isUndefined(tAttrs.isDisabled))
         tAttrs.isDisabled = 'false'
 
-      if (angular.isUndefined(tAttrs.isAnimate))
-        tAttrs.isAnimate = 'true'
+      if (angular.isUndefined(tAttrs.isAnimated))
+        tAttrs.isAnimated = 'true'
 
       if (angular.isUndefined(tAttrs.switchSize))
         tAttrs.switchSize = "switch-medium"
@@ -61,7 +61,6 @@ angular.module('toggle-switch', [])
 
 
       postLink = (scope, iElement, iAttrs, ngModelCtrl) ->
-        console.log(scope)
         # The $formatters pipeline. Convert a real model value into a value our view can use.
         ngModelCtrl.$formatters.push (modelValue) ->
           return modelValue
@@ -87,6 +86,52 @@ angular.module('toggle-switch', [])
 
 
   .controller 'toggleSwitchController', ($scope) ->
+
+    ### Update model when we click on the toggle-switch. ###
     $scope.updateModel = ->
       if (!$scope.isDisabled)
         $scope.model = !$scope.model
+
+
+    ### Resize labels field Functions ###
+    max = null
+    $scope.leftLabelStr = null
+    $scope.rightLabelStr = null
+    $scope.knobLabelStr = null
+
+    $scope.completeWithSpace = (maxLength) ->
+      max = Math.max($scope.leftLabel.length, $scope.rightLabel.length, $scope.knobLabel.length)
+      $scope.leftLabelStr = angular.copy($scope.leftLabel)
+      $scope.rightLabelStr = angular.copy($scope.rightLabel)
+      $scope.knobLabelStr = angular.copy($scope.knobLabel)
+
+      if ($scope.leftLabel.length == max)
+        while ($scope.rightLabelStr.length < max)
+          $scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0'
+
+        while ($scope.knobLabelStr.length < max)
+          $scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0'
+
+      else if ($scope.rightLabel.length == max)
+        while ($scope.leftLabelStr.length < max)
+          $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0'
+
+        while ($scope.knobLabelStr.length < max)
+          $scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0'
+
+      else
+        while ($scope.leftLabelStr.length < max)
+          $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0'
+
+        while ($scope.rightLabelStr.length < max)
+          $scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0'
+
+
+    $scope.$watch 'leftLabel', ->
+      $scope.completeWithSpace()
+
+    $scope.$watch 'rightLabel', ->
+      $scope.completeWithSpace()
+
+    $scope.$watch 'knobLabel', ->
+      $scope.completeWithSpace()
