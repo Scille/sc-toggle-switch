@@ -1,1 +1,1 @@
-angular.module('app', ['toggle-switch']);
+angular.module('app', ['sc-toggle-switch']);
