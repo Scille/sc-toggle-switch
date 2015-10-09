@@ -8,6 +8,7 @@
   "main" : [
     "./release/js/toggle_switch.js",
     "./release/css/toggle_switch.css"
+    "./release/html_template/toggle_switch_template.html"
   ],
   "description": "Create toggle switches.",
   "ignore": [
