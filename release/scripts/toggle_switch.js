@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('toggle-switch', []).directive('toggleSwitchDirective', function() {
+  angular.module('sc-toggle-switch', []).directive('toggleSwitchDirective', function() {
     return {
       restrict: 'EA',
       templateUrl: '../html_template/toggle_switch_template.html',

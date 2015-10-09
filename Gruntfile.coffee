@@ -164,6 +164,18 @@ module.exports = (grunt) ->
           ]
         ]
 
+      release:
+        files: [
+          expand: true
+          dot: true
+          cwd: "<%= yeoman.src %>"
+          dest: "<%= yeoman.release %>"
+          src: [
+            "*.html"
+            "**/*.html"
+          ]
+        ]
+
     # Empties folders to start fresh
     clean:
       dist:
@@ -184,7 +196,8 @@ module.exports = (grunt) ->
     "clean:dist"
     "bower"
     "wiredep"
-    "copy"
+    "copy:html_template"
+    "copy:demo"
     "less:dist"
     "coffee:dist"
   ]
@@ -203,6 +216,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask "release", [
     "clean:release"
+    "copy:release"
     "less:release"
     "coffee:release"
   ]
