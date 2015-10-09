@@ -10,6 +10,7 @@ module.exports = (grunt) ->
     src: "src"
     dist: "dist"
     demo: "demo"
+    release: "release"
 
 
 
@@ -101,6 +102,15 @@ module.exports = (grunt) ->
           ext: ".js"
         ]
 
+      release:
+        files: [
+          expand: true
+          cwd: "<%= yeoman.src %>/coffee"
+          src: "**/*.coffee"
+          dest: "<%= yeoman.release %>/scripts"
+          ext: ".js"
+        ]
+
     # Compiles LESS file to CSS
     less:
       options:
@@ -114,6 +124,15 @@ module.exports = (grunt) ->
           cwd: "<%= yeoman.src %>/less"
           src: "**/*.less"
           dest: "<%= yeoman.dist %>/css"
+          ext: ".css"
+        ]
+
+      release:
+        files: [
+          expand: true
+          cwd: "<%= yeoman.src %>/less"
+          src: "**/*.less"
+          dest: "<%= yeoman.release %>/css"
           ext: ".css"
         ]
 
@@ -152,6 +171,11 @@ module.exports = (grunt) ->
           dot: true
           src: "<%= yeoman.dist %>/**/*"
         ]
+      release:
+        files: [
+          dot: true
+          src: "<%= yeoman.release %>/**/*"
+        ]
 
 
 
@@ -161,8 +185,8 @@ module.exports = (grunt) ->
     "bower"
     "wiredep"
     "copy"
-    "less"
-    "coffee"
+    "less:dist"
+    "coffee:dist"
   ]
 
   grunt.registerTask "serve", [
@@ -175,4 +199,10 @@ module.exports = (grunt) ->
   grunt.registerTask "default", [
     "build"
     "watch"
+  ]
+
+  grunt.registerTask "release", [
+    "clean:release"
+    "less:release"
+    "coffee:release"
   ]
