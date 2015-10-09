@@ -1,5 +1,5 @@
 <span ng-show="!isSummarize">
-  <div class="toggle-switch" ng-click="updateModel()" ng-class="[ switchSize, { 'disabled' : isDisabled } ]" role="switch" aria-checked="{{!!model}}">
+  <div class="toggle-switch" ng-style="{ 'border-color': borderColor }" ng-click="updateModel()" ng-class="[ switchSize, { 'disabled' : isDisabled } ]" role="switch" aria-checked="{{!!model}}">
     <div ng-class="[ switchStatus, { 'switch-animate' : isAnimate } ]">
       <span class="switch-left" ng-style="{ 'background-color': leftLabelColor }" ng-bind="leftLabel"></span>
       <span class="switch-knob" ng-style="{ 'background-color': knobLabelColor }" ng-bind="knobLabel"></span>

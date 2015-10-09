@@ -17,6 +17,7 @@ angular.module('toggle-switch', [])
       leftLabelColor: '@'
       rightLabelColor: '@'
       knobLabelColor: '@'
+      borderColor: '@'
 
     compile: (tElement, tAttrs) ->
       if (angular.isUndefined(tAttrs.isSummarize))
@@ -54,6 +55,10 @@ angular.module('toggle-switch', [])
 
       if (angular.isUndefined(tAttrs.knobLabelColor))
         tAttrs.knobLabelColor = 'white'
+
+      if (angular.isUndefined(tAttrs.borderColor))
+        tAttrs.borderColor = 'gray'
+
 
       postLink = (scope, iElement, iAttrs, ngModelCtrl) ->
         console.log(scope)

@@ -32,14 +32,29 @@
   <span toggle-switch-directive switch-size="large" ng-model="switchModel"></span>
   <span toggle-switch-directive switch-size="xlarge" ng-model="switchModel"></span>
 
-  <h2>Colors</h2>
-  <div ng-init="leftColor = 'blue'; knobColor = 'white'; rightColor='red'">
+  <h2>Resize labels</h2>
+  <div ng-init="leftLabel = 'On'; knobLabel = 'TV'; rightLabel='Off'">
     <div>
+      <input type="text" name="left label" ng-model="leftLabel">
+      <input type="text" name="knob" ng-model="knobLabel">
+      <input type="text" name="right label" ng-model="rightLabel">
+    </div></br>
+    <div toggle-switch-directive ng-model="switchModel" left-label="{{leftLabel}}" knob-label="{{knobLabel}}" right-label="{{rightLabel}}"></div>
+  </div>
+
+  <h2>Colors</h2>
+  <div ng-init="borderColor = 'gray'; leftColor = 'blue'; knobColor = 'white'; rightColor='red'">
+    <div>
+      <h4>Border Color</h4>
+      <input type="text" name="border color" ng-model="borderColor">
+    </div>
+    <div>
+      <h4>Labels Color</h4>
       <input type="text" name="left label color" ng-model="leftColor">
-      <input type="text" name="knob color" ng-model="knobColor">
+      <input type="text" name="knob label color" ng-model="knobColor">
       <input type="text" name="right label color" ng-model="rightColor">
     </div></br>
-    <div toggle-switch-directive ng-model="switchModel" right-label-color="{{rightColor}}" left-label-color="{{leftColor}}" knob-label-color="{{knobColor}}"></div>
+    <div toggle-switch-directive ng-model="switchModel" border-color="{{borderColor}}" left-label-color="{{leftColor}}" knob-label-color="{{knobColor}}" right-label-color="{{rightColor}}" ></div>
   </div>
 
   <h2>Disabled</h2>
