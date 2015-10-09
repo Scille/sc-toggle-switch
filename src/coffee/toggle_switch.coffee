@@ -11,15 +11,12 @@ angular.module('toggle-switch', [])
       isSummarize: '=?'
       isAnimate: '=?'
       switchSize: '@'
-      switchColor: '@'
-      onLabel: '@'
-      offLabel: '@'
+      leftLabel: '@'
+      rightLabel: '@'
       knobLabel: '@'
-      ### TODO Select Color
-      onLabelColor: '@'
-      offLabelColor: '@'
+      leftLabelColor: '@'
+      rightLabelColor: '@'
       knobLabelColor: '@'
-      ###
 
     compile: (tElement, tAttrs) ->
       if (angular.isUndefined(tAttrs.isSummarize))
@@ -39,16 +36,24 @@ angular.module('toggle-switch', [])
       else
         tAttrs.switchSize = "switch-" + tAttrs.switchSize
 
-      if (angular.isUndefined(tAttrs.onLabel))
-        tAttrs.onLabel = 'On'
+      if (angular.isUndefined(tAttrs.leftLabel))
+        tAttrs.leftLabel = 'On'
 
-      if (angular.isUndefined(tAttrs.offLabel))
-        tAttrs.offLabel = 'Off'
+      if (angular.isUndefined(tAttrs.rightLabel))
+        tAttrs.rightLabel = 'Off'
 
       if (angular.isUndefined(tAttrs.knobLabel))
         # NO-BREAK SPACE Unicode Character
         tAttrs.knobLabel = '\u00a0'
 
+      if (angular.isUndefined(tAttrs.leftLabelColor))
+        tAttrs.leftLabelColor = 'blue'
+
+      if (angular.isUndefined(tAttrs.rightLabelColor))
+        tAttrs.rightLabelColor = 'red'
+
+      if (angular.isUndefined(tAttrs.knobLabelColor))
+        tAttrs.knobLabelColor = 'white'
 
       postLink = (scope, iElement, iAttrs, ngModelCtrl) ->
         console.log(scope)

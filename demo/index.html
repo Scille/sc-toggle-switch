@@ -20,7 +20,7 @@
   <div toggle-switch-directive ng-model="switchModel"></div>
 
   <h2>Text</h2>
-  <div toggle-switch-directive ng-model="switchModel" on-label="Yes" off-label="No"></div>
+  <div toggle-switch-directive ng-model="switchModel" left-label="Yes" right-label="No"></div>
 
   <h2>Knob Text</h2>
   <div toggle-switch-directive ng-model="switchModel" knob-label="TV"></div>
@@ -31,6 +31,16 @@
   <span toggle-switch-directive switch-size="medium" ng-model="switchModel"></span>
   <span toggle-switch-directive switch-size="large" ng-model="switchModel"></span>
   <span toggle-switch-directive switch-size="xlarge" ng-model="switchModel"></span>
+
+  <h2>Colors</h2>
+  <div ng-init="leftColor = 'blue'; knobColor = 'white'; rightColor='red'">
+    <div>
+      <input type="text" name="left label color" ng-model="leftColor">
+      <input type="text" name="knob color" ng-model="knobColor">
+      <input type="text" name="right label color" ng-model="rightColor">
+    </div></br>
+    <div toggle-switch-directive ng-model="switchModel" right-label-color="{{rightColor}}" left-label-color="{{leftColor}}" knob-label-color="{{knobColor}}"></div>
+  </div>
 
   <h2>Disabled</h2>
   <div ng-init="disabled = true">
