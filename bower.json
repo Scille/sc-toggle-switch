@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "authors": [
     "duboisR <dubois.rom@gmail.com>"
+    "Vincent Mézino <vincent.mezino@gmail.com>"
   ],
   "main" : [
     "./release/js/toggle_switch.js",
