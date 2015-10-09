@@ -189,7 +189,17 @@ module.exports = (grunt) ->
           src: "<%= yeoman.release %>/**/*"
         ]
 
+    ngtemplates:
+      release:
+        src: "<%= yeoman.src %>/**/*.html"
+        dest: '<%= yeoman.release %>/templates.js'
+      dist:
+        src: "<%= yeoman.src %>/**/*.html"
+        dest: '<%= yeoman.dist %>/templates.js'
 
+
+  ### Activate grunt-angular-templates ###
+  grunt.loadNpmTasks 'grunt-angular-templates'
 
   ### Custom tasks ###
   grunt.registerTask "build", [
@@ -219,4 +229,5 @@ module.exports = (grunt) ->
     "copy:release"
     "less:release"
     "coffee:release"
+    "ngtemplates:release"
   ]

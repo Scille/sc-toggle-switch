@@ -3,7 +3,7 @@
   angular.module('sc-toggle-switch', []).directive('toggleSwitchDirective', function() {
     return {
       restrict: 'EA',
-      templateUrl: '../html_template/toggle_switch_template.html',
+      templateUrl: 'html_template/toggle_switch_template.html',
       controller: 'toggleSwitchController',
       require: 'ngModel',
       scope: {
