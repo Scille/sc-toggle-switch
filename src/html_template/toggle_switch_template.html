@@ -1,14 +1,17 @@
-<span ng-show="!showAsButton">
+<span ng-show="!isSummarize">
   <div class="toggle-switch" ng-click="updateModel()" ng-class="[ switchSize, { 'disabled' : isDisabled } ]" role="switch" aria-checked="{{!!model}}">
-    <div ng-class="[ switchStatus, { 'switch-animate' : switchAnimate } ]">
+    <div ng-class="[ switchStatus, { 'switch-animate' : isAnimate } ]">
       <span class="switch-left" ng-bind="onLabel"></span>
       <span class="switch-knob" ng-bind="knobLabel"></span>
       <span class="switch-right" ng-bind="offLabel"></span>
     </div>
   </div>
 </span>
-<span ng-show="showAsButton" class="input-group">
-  <span ng-show="!model" class="btn btn-danger btn-sm" ng-disabled="uDisabled">Non</span>
-  <span class="btn btn-default btn-sm" ng-disabled="uDisabled">Demandeur</span>
-  <span ng-show="model" class="btn btn-success btn-sm" ng-disabled="uDisabled">Oui</span>
+<span ng-show="isSummarize">
+  <div class="toggle-switch-summarize" ng-class="switchSize">
+    <span class="switch-knob">{{knobLabel}}</span>
+    <span ng-show="model == undefined" class="switch-knob">Undefined</span>
+    <span ng-show="model != undefined && model" class="switch-left">{{onLabel}}</span>
+    <span ng-show="model != undefined && !model" class="switch-right">{{offLabel}}</span>
+  </div>
 </span>

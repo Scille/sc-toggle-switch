@@ -23,20 +23,25 @@
   <div toggle-switch-directive ng-model="switchModel" on-label="Yes" off-label="No"></div>
 
   <h2>Knob Text</h2>
-  <div toggle-switch-directive ng-model="switchModel" knob-label="Show"></div>
+  <div toggle-switch-directive ng-model="switchModel" knob-label="TV"></div>
 
   <h2>Sizes</h2>
-  <p>
   <div toggle-switch-directive switch-size="xsmall" ng-model="switchModel"></div></br>
   <div toggle-switch-directive switch-size="small" ng-model="switchModel"></div></br>
   <div toggle-switch-directive switch-size="medium" ng-model="switchModel"></div></br>
   <div toggle-switch-directive switch-size="large" ng-model="switchModel"></div></br>
   <div toggle-switch-directive switch-size="xlarge" ng-model="switchModel"></div>
-</p>
 
-  <h2>Show as button</h2>
-  <button onclick="test = !test">Click me</button>
-  <div toggle-switch-directive show-as-button="test" ng-model="switchModel"></div></br>
+  <div ng-init="summarize = false">
+    <h2>Summarize</h2>
+    <button ng-click="summarize = !summarize">Click me</button>
+    <p>Summarize toggle-switch: {{summarize}}</p>
+    <div toggle-switch-directive is-summarize="summarize" switch-size="xsmall" ng-model="switchModel" knob-label="TV"></div></br>
+    <div toggle-switch-directive is-summarize="summarize" switch-size="small" ng-model="switchModel" knob-label="TV"></div></br>
+    <div toggle-switch-directive is-summarize="summarize" switch-size="medium" ng-model="switchModel" knob-label="TV"></div></br>
+    <div toggle-switch-directive is-summarize="summarize" switch-size="large" ng-model="switchModel" knob-label="TV"></div></br>
+    <div toggle-switch-directive is-summarize="summarize" switch-size="xlarge" ng-model="switchModel" knob-label="TV"></div>
+  </div>
 
   <!-- bower:js -->
   <script src="bower_components/angular/angular.js"></script>

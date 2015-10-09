@@ -7,10 +7,10 @@ angular.module('toggle-switch', [])
     controller: 'toggleSwitchController'
     require: 'ngModel'
     scope:
-      showAsButton: '=?'
       isDisabled: '=?'
+      isSummarize: '=?'
+      isAnimate: '=?'
       switchSize: '@'
-      switchAnimate: '=?'
       onLabel: '@'
       offLabel: '@'
       knobLabel: '@'
@@ -21,11 +21,14 @@ angular.module('toggle-switch', [])
       ###
 
     compile: (tElement, tAttrs) ->
-      if (angular.isUndefined(tAttrs.showAsButton))
-        tAttrs.showAsButton = 'false'
+      if (angular.isUndefined(tAttrs.isSummarize))
+        tAttrs.isSummarize = 'false'
 
       if (angular.isUndefined(tAttrs.isDisabled))
         tAttrs.isDisabled = 'false'
+
+      if (angular.isUndefined(tAttrs.isAnimate))
+        tAttrs.isAnimate = 'true'
 
       if (angular.isUndefined(tAttrs.switchSize))
         tAttrs.switchSize = "switch-medium"
@@ -34,9 +37,6 @@ angular.module('toggle-switch', [])
         tAttrs.switchSize = "switch-medium"
       else
         tAttrs.switchSize = "switch-" + tAttrs.switchSize
-
-      if (angular.isUndefined(tAttrs.switchAnimate))
-        tAttrs.switchAnimate = 'true'
 
       if (angular.isUndefined(tAttrs.onLabel))
         tAttrs.onLabel = 'On'
