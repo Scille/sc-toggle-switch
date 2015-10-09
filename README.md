@@ -1,4 +1,4 @@
-# AngularJS TOGGLE SWITCH
+# Scille Toggle Switch (for Angularjs)
 
 
 ## Installation
