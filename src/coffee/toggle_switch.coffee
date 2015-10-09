@@ -11,6 +11,7 @@ angular.module('toggle-switch', [])
       isSummarize: '=?'
       isAnimate: '=?'
       switchSize: '@'
+      switchColor: '@'
       onLabel: '@'
       offLabel: '@'
       knobLabel: '@'
@@ -77,4 +78,5 @@ angular.module('toggle-switch', [])
 
   .controller 'toggleSwitchController', ($scope) ->
     $scope.updateModel = ->
-      $scope.model = !$scope.model
+      if (!$scope.isDisabled)
+        $scope.model = !$scope.model
