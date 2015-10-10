@@ -86,9 +86,9 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
           scope.model = ngModelCtrl.$viewValue
 
         # Updating $viewValue when the UI changes
-        scope.$watch 'localModel', (value) ->
-          if (value?)
-            if (value)
+        scope.$watch 'model', (value) ->
+          if value?
+            if value == scope.leftValue
               scope.switchStatus = "switch-on"
             else
               scope.switchStatus = "switch-off"
@@ -101,8 +101,8 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
 
     ### Define local value and bind it with desired values ###
     $scope.localModel = undefined
-    # If $scope.model is not undefined, erase $scope.defaultValue
-    if $scope.model? and $scope.model != undefined
+    # If model exist and it's not undefined, erase defaultValue
+    if !$scope.model?
       $scope.defaultValue = $scope.model
 
     if $scope.defaultValue == $scope.leftValue
