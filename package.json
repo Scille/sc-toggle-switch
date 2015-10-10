@@ -1,6 +1,6 @@
 {
-  "name": "SCILLE_toggle_switch",
-  "version": "0.0.0",
+  "name": "Scille toogle switch",
+  "version": "1.0.1",
   "description": "Create toggle switches.",
   "author": "DUBOIS Romain",
   "scripts": {
