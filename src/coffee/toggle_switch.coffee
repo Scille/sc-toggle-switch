@@ -101,7 +101,10 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
 
     ### Define local value and bind it with desired values ###
     $scope.localModel = undefined
-    $scope.model = undefined
+    # If $scope.model is not undefined, erase $scope.defaultValue
+    if $scope.model? and $scope.model != undefined
+      $scope.defaultValue = $scope.model
+
     if $scope.defaultValue == $scope.leftValue
       $scope.localModel = true
       $scope.model = $scope.leftValue

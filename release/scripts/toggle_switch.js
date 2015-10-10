@@ -101,7 +101,9 @@
     /* Define local value and bind it with desired values */
     var max;
     $scope.localModel = void 0;
-    $scope.model = void 0;
+    if (($scope.model != null) && $scope.model !== void 0) {
+      $scope.defaultValue = $scope.model;
+    }
     if ($scope.defaultValue === $scope.leftValue) {
       $scope.localModel = true;
       $scope.model = $scope.leftValue;
