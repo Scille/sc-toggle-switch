@@ -16,6 +16,9 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
       knobLabel: '@'
       leftLabelColor: '@'
       rightLabelColor: '@'
+      leftValue: '@'
+      rightValue: '@'
+      defaultValue: '@'
       knobLabelColor: '@'
       borderColor: '@'
 
@@ -59,6 +62,12 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
       if (angular.isUndefined(tAttrs.borderColor))
         tAttrs.borderColor = 'gray'
 
+      if (angular.isUndefined(tAttrs.leftValue))
+        tAttrs.leftValue = 'true'
+
+      if (angular.isUndefined(tAttrs.rightValue))
+        tAttrs.rightValue = 'false'
+
 
       postLink = (scope, iElement, iAttrs, ngModelCtrl) ->
         # The $formatters pipeline. Convert a real model value into a value our view can use.
@@ -76,7 +85,7 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
         # Updating $viewValue when the UI changes
         scope.$watch 'model', (value) ->
           if (value?)
-            if (value)
+            if (value == scope.leftValue)
               scope.switchStatus = "switch-on"
             else
               scope.switchStatus = "switch-off"
@@ -87,10 +96,20 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
 
   .controller 'toggleSwitchController', ($scope) ->
 
+    ### Define local value and bind it with desired values ###
+    $scope.desiredValues =
+      'true' : $scope.leftValue
+      'false' : $scope.rightValue
+      'undefined' : undefined
+
+    $scope.localModel = $scope.defaultValue
+    $scope.model = $scope.desiredValues[$scope.localModel]
+
     ### Update model when we click on the toggle-switch. ###
     $scope.updateModel = ->
       if (!$scope.isDisabled)
-        $scope.model = !$scope.model
+        $scope.localModel = !$scope.localModel
+        $scope.model = $scope.desiredValues[$scope.localModel]
 
 
     ### Resize labels field Functions ###
