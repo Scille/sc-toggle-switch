@@ -16,9 +16,9 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
       knobLabel: '@'
       leftLabelColor: '@'
       rightLabelColor: '@'
-      leftValue: '@'
-      rightValue: '@'
-      defaultValue: '@'
+      leftValue: '=?'
+      rightValue: '=?'
+      defaultValue: '=?'
       knobLabelColor: '@'
       borderColor: '@'
 
@@ -68,6 +68,9 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
       if (angular.isUndefined(tAttrs.rightValue))
         tAttrs.rightValue = 'false'
 
+      if (angular.isUndefined(tAttrs.defaultValue))
+        tAttrs.defaultValue = undefined
+
 
       postLink = (scope, iElement, iAttrs, ngModelCtrl) ->
         # The $formatters pipeline. Convert a real model value into a value our view can use.
@@ -83,9 +86,9 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
           scope.model = ngModelCtrl.$viewValue
 
         # Updating $viewValue when the UI changes
-        scope.$watch 'model', (value) ->
+        scope.$watch 'localModel', (value) ->
           if (value?)
-            if (value == scope.leftValue)
+            if (value)
               scope.switchStatus = "switch-on"
             else
               scope.switchStatus = "switch-off"
@@ -97,20 +100,26 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
   .controller 'toggleSwitchController', ($scope) ->
 
     ### Define local value and bind it with desired values ###
-    $scope.desiredValues =
-      'true' : $scope.leftValue
-      'false' : $scope.rightValue
-      'undefined' : undefined
-
-    $scope.localModel = $scope.defaultValue
-    $scope.model = $scope.desiredValues[$scope.localModel]
+    $scope.localModel = undefined
+    $scope.model = undefined
+    if $scope.defaultValue == $scope.leftValue
+      $scope.localModel = true
+      $scope.model = $scope.leftValue
+    if $scope.defaultValue == $scope.rightValue
+      $scope.localModel = false
+      $scope.model = $scope.rightValue
 
     ### Update model when we click on the toggle-switch. ###
     $scope.updateModel = ->
       if (!$scope.isDisabled)
         $scope.localModel = !$scope.localModel
-        $scope.model = $scope.desiredValues[$scope.localModel]
-
+        # Assume that in localModel, left = true, and right = false
+        if $scope.localModel == true
+          $scope.model = $scope.leftValue
+        else if $scope.localModel == false
+          $scope.model = $scope.rightValue
+        else
+          $scope.model = undefined
 
     ### Resize labels field Functions ###
     max = null
