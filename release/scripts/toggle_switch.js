@@ -16,6 +16,9 @@
         knobLabel: '@',
         leftLabelColor: '@',
         rightLabelColor: '@',
+        leftValue: '@',
+        rightValue: '@',
+        defaultValue: '@',
         knobLabelColor: '@',
         borderColor: '@'
       },
@@ -59,6 +62,12 @@
         if (angular.isUndefined(tAttrs.borderColor)) {
           tAttrs.borderColor = 'gray';
         }
+        if (angular.isUndefined(tAttrs.leftValue)) {
+          tAttrs.leftValue = 'true';
+        }
+        if (angular.isUndefined(tAttrs.rightValue)) {
+          tAttrs.rightValue = 'false';
+        }
         return postLink = function(scope, iElement, iAttrs, ngModelCtrl) {
           ngModelCtrl.$formatters.push(function(modelValue) {
             return modelValue;
@@ -71,7 +80,7 @@
           };
           return scope.$watch('model', function(value) {
             if ((value != null)) {
-              if (value) {
+              if (value === scope.leftValue) {
                 scope.switchStatus = "switch-on";
               } else {
                 scope.switchStatus = "switch-off";
@@ -86,11 +95,21 @@
     };
   }).controller('toggleSwitchController', function($scope) {
 
-    /* Update model when we click on the toggle-switch. */
+    /* Define local value and bind it with desired values */
     var max;
+    $scope.desiredValues = {
+      'true': $scope.leftValue,
+      'false': $scope.rightValue,
+      'undefined': void 0
+    };
+    $scope.localModel = $scope.defaultValue;
+    $scope.model = $scope.desiredValues[$scope.localModel];
+
+    /* Update model when we click on the toggle-switch. */
     $scope.updateModel = function() {
       if (!$scope.isDisabled) {
-        return $scope.model = !$scope.model;
+        $scope.localModel = !$scope.localModel;
+        return $scope.model = $scope.desiredValues[$scope.localModel];
       }
     };
 
