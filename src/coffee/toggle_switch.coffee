@@ -1,11 +1,9 @@
 'use strict'
 
-angular.module('sc-toggle-switch', [])
-  .run ($templateCache) ->
-    $templateCache.put('template', '../html_template/toggle_switch_template.html')
+angular.module('sc-toggle-switch', ['stcs-templates'])
   .directive 'toggleSwitchDirective', ($templateCache) ->
     restrict: 'EA'
-    templateUrl: $templateCache.get('template')
+    templateUrl: 'src/html_template/toggle_switch_template.html'
     controller: 'toggleSwitchController'
     require: 'ngModel'
     scope:

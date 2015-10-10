@@ -17,6 +17,30 @@ module.exports = (grunt) ->
   ### Define the configuration for all the tasks ###
   grunt.initConfig
 
+    # Cache template for packaging
+    html2js:
+      options:
+        base: ''
+        module: 'stcs-templates'
+        singleModule: true
+        useStrict: true
+        htmlmin:
+          collapseBooleanAttributes: true
+          collapseWhitespace: true
+          removeAttributeQuotes: true
+          removeComments: true
+          removeEmptyAttributes: true
+          removeRedundantAttributes: true
+          removeScriptTypeAttributes: true
+          removeStyleLinkTypeAttributes: true
+      dist:
+        src: ['<%= yeoman.src %>/html_template/**/*.html']
+        dest: '<%= yeoman.dist %>/scripts/populate_template_cache.js'
+      release:
+        src: ['<%= yeoman.src %>/html_template/**/*.html']
+        dest: '<%= yeoman.release %>/scripts/populate_template_cache.js'
+
+
     # Project settings
     yeoman: appConfig
 
@@ -189,18 +213,6 @@ module.exports = (grunt) ->
           src: "<%= yeoman.release %>/**/*"
         ]
 
-    ngtemplates:
-      release:
-        src: "<%= yeoman.src %>/**/*.html"
-        dest: '<%= yeoman.release %>/templates.js'
-      dist:
-        src: "<%= yeoman.src %>/**/*.html"
-        dest: '<%= yeoman.dist %>/templates.js'
-
-
-  ### Activate grunt-angular-templates ###
-  grunt.loadNpmTasks 'grunt-angular-templates'
-
   ### Custom tasks ###
   grunt.registerTask "build", [
     "clean:dist"
@@ -210,6 +222,7 @@ module.exports = (grunt) ->
     "copy:demo"
     "less:dist"
     "coffee:dist"
+    "html2js:dist"
   ]
 
   grunt.registerTask "serve", [
@@ -229,5 +242,5 @@ module.exports = (grunt) ->
     "copy:release"
     "less:release"
     "coffee:release"
-    "ngtemplates:release"
+    "html2js:release"
   ]

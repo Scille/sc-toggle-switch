@@ -6,9 +6,9 @@
     "Vincent Mézino <vincent.mezino@gmail.com>"
   ],
   "main" : [
-    "./release/js/toggle_switch.js",
-    "./release/css/toggle_switch.css",
-    "./release/templates.js"
+    "./release/scripts/toggle_switch.js",
+    "./release/scripts/populate_template_cache.js",
+    "./release/css/toggle_switch.css"
   ],
   "description": "Create toggle switches.",
   "ignore": [
