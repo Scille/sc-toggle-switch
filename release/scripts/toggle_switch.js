@@ -81,9 +81,9 @@
           ngModelCtrl.$render = function() {
             return scope.model = ngModelCtrl.$viewValue;
           };
-          return scope.$watch('localModel', function(value) {
-            if ((value != null)) {
-              if (value) {
+          return scope.$watch('model', function(value) {
+            if (value != null) {
+              if (value === scope.leftValue) {
                 scope.switchStatus = "switch-on";
               } else {
                 scope.switchStatus = "switch-off";
@@ -101,7 +101,7 @@
     /* Define local value and bind it with desired values */
     var max;
     $scope.localModel = void 0;
-    if (($scope.model != null) && $scope.model !== void 0) {
+    if ($scope.model == null) {
       $scope.defaultValue = $scope.model;
     }
     if ($scope.defaultValue === $scope.leftValue) {
