@@ -16,9 +16,9 @@
         knobLabel: '@',
         leftLabelColor: '@',
         rightLabelColor: '@',
-        leftValue: '@',
-        rightValue: '@',
-        defaultValue: '@',
+        leftValue: '=?',
+        rightValue: '=?',
+        defaultValue: '=?',
         knobLabelColor: '@',
         borderColor: '@'
       },
@@ -68,6 +68,9 @@
         if (angular.isUndefined(tAttrs.rightValue)) {
           tAttrs.rightValue = 'false';
         }
+        if (angular.isUndefined(tAttrs.defaultValue)) {
+          tAttrs.defaultValue = void 0;
+        }
         return postLink = function(scope, iElement, iAttrs, ngModelCtrl) {
           ngModelCtrl.$formatters.push(function(modelValue) {
             return modelValue;
@@ -78,9 +81,9 @@
           ngModelCtrl.$render = function() {
             return scope.model = ngModelCtrl.$viewValue;
           };
-          return scope.$watch('model', function(value) {
+          return scope.$watch('localModel', function(value) {
             if ((value != null)) {
-              if (value === scope.leftValue) {
+              if (value) {
                 scope.switchStatus = "switch-on";
               } else {
                 scope.switchStatus = "switch-off";
@@ -97,19 +100,28 @@
 
     /* Define local value and bind it with desired values */
     var max;
-    $scope.desiredValues = {
-      'true': $scope.leftValue,
-      'false': $scope.rightValue,
-      'undefined': void 0
-    };
-    $scope.localModel = $scope.defaultValue;
-    $scope.model = $scope.desiredValues[$scope.localModel];
+    $scope.localModel = void 0;
+    $scope.model = void 0;
+    if ($scope.defaultValue === $scope.leftValue) {
+      $scope.localModel = true;
+      $scope.model = $scope.leftValue;
+    }
+    if ($scope.defaultValue === $scope.rightValue) {
+      $scope.localModel = false;
+      $scope.model = $scope.rightValue;
+    }
 
     /* Update model when we click on the toggle-switch. */
     $scope.updateModel = function() {
       if (!$scope.isDisabled) {
         $scope.localModel = !$scope.localModel;
-        return $scope.model = $scope.desiredValues[$scope.localModel];
+        if ($scope.localModel === true) {
+          return $scope.model = $scope.leftValue;
+        } else if ($scope.localModel === false) {
+          return $scope.model = $scope.rightValue;
+        } else {
+          return $scope.model = void 0;
+        }
       }
     };
 
