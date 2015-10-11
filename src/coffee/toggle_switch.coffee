@@ -131,25 +131,31 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
       $scope.knobLabelStr = angular.copy($scope.knobLabel)
 
       if ($scope.leftLabel.length == max)
-        while ($scope.rightLabelStr.length < max)
-          $scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0'
+        if $scope.rightLabelStr
+          while ($scope.rightLabelStr.length < max)
+            $scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0'
 
-        while ($scope.knobLabelStr.length < max)
-          $scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0'
+        if $scope.knobLabelStr
+          while ($scope.knobLabelStr.length < max)
+            $scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0'
 
       else if ($scope.rightLabel.length == max)
-        while ($scope.leftLabelStr.length < max)
-          $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0'
+        if $scope.leftLabelStr
+          while ($scope.leftLabelStr.length < max)
+            $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0'
 
-        while ($scope.knobLabelStr.length < max)
-          $scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0'
+        if $scope.knobLabelStr
+          while ($scope.knobLabelStr.length < max)
+            $scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0'
 
       else
-        while ($scope.leftLabelStr.length < max)
-          $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0'
+        if $scope.leftLabelStr
+          while ($scope.leftLabelStr.length < max)
+            $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0'
 
-        while ($scope.rightLabelStr.length < max)
-          $scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0'
+        if $scope.rightLabelStr
+          while ($scope.rightLabelStr.length < max)
+            $scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0'
 
 
     $scope.$watch 'leftLabel', ->
