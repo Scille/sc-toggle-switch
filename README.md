@@ -36,6 +36,7 @@ $ grunt serve
 
 DUBOIS Romain, Engineer R&D at [SCILLE](http://scille.eu/)
 <dubois.rom@gmail.com>
+
 MEZINO Vincent, Engineer R&D at [SCILLE](http://scille.eu)
 <vincent.mezino@gmail.com>
 
