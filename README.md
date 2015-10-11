@@ -34,8 +34,10 @@ $ grunt serve
 
 ## Contributors
 
-DUBOIS Romain, Engineer R&D at [SCILLE](http://http://scille.eu/)
+DUBOIS Romain, Engineer R&D at [SCILLE](http://scille.eu/)
 <dubois.rom@gmail.com>
+MEZINO Vincent, Engineer R&D at [SCILLE](http://scille.eu)
+<vincent.mezino@gmail.com>
 
 ## License
 
