@@ -18,7 +18,6 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
       rightLabelColor: '@'
       leftValue: '=?'
       rightValue: '=?'
-      defaultValue: '=?'
       knobLabelColor: '@'
       borderColor: '@'
 
@@ -68,9 +67,6 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
       if (angular.isUndefined(tAttrs.rightValue))
         tAttrs.rightValue = 'false'
 
-      if (angular.isUndefined(tAttrs.defaultValue))
-        tAttrs.defaultValue = undefined
-
 
       postLink = (scope, iElement, iAttrs, ngModelCtrl) ->
         # The $formatters pipeline. Convert a real model value into a value our view can use.
@@ -99,22 +95,20 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
 
   .controller 'toggleSwitchController', ($scope) ->
 
-    ### Define local value and bind it with desired values ###
+    ### Define localModel to bind model on 'true/false' value ###
     $scope.localModel = undefined
-    # If model exist and it's not undefined, erase defaultValue
-    if !$scope.model?
-      $scope.defaultValue = $scope.model
-
-    if $scope.defaultValue == $scope.leftValue
-      $scope.localModel = true
-      $scope.model = $scope.leftValue
-    if $scope.defaultValue == $scope.rightValue
-      $scope.localModel = false
-      $scope.model = $scope.rightValue
 
     ### Update model when we click on the toggle-switch. ###
     $scope.updateModel = ->
       if (!$scope.isDisabled)
+        ### For first click, if model is already set, we set localModel
+            belong to model value ###
+        if $scope.localModel == undefined
+          if $scope.model == $scope.leftValue
+            $scope.localModel = true
+          else if $scope.model == $scope.rightValue
+            $scope.localModel = false
+
         $scope.localModel = !$scope.localModel
         # Assume that in localModel, left = true, and right = false
         if $scope.localModel == true
