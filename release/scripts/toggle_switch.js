@@ -130,49 +130,37 @@
     $scope.knobLabelStr = null;
     $scope.completeWithSpace = function(maxLength) {
       var results, results1, results2;
-      max = Math.max($scope.leftLabel.length, $scope.rightLabel.length, $scope.knobLabel.length);
-      $scope.leftLabelStr = angular.copy($scope.leftLabel);
-      $scope.rightLabelStr = angular.copy($scope.rightLabel);
-      $scope.knobLabelStr = angular.copy($scope.knobLabel);
+      $scope.leftLabelStr = $scope.leftLabel != null ? angular.copy($scope.leftLabel) : '';
+      $scope.rightLabelStr = $scope.rightLabel != null ? angular.copy($scope.rightLabel) : '';
+      $scope.knobLabelStr = $scope.knobLabel != null ? angular.copy($scope.knobLabel) : '';
+      max = Math.max($scope.leftLabelStr.length, $scope.rightLabelStr.length, $scope.knobLabelStr.length);
       if ($scope.leftLabel.length === max) {
-        if ($scope.rightLabelStr) {
-          while ($scope.rightLabelStr.length < max) {
-            $scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0';
-          }
+        while ($scope.rightLabelStr.length < max) {
+          $scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0';
         }
-        if ($scope.knobLabelStr) {
-          results = [];
-          while ($scope.knobLabelStr.length < max) {
-            results.push($scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0');
-          }
-          return results;
+        results = [];
+        while ($scope.knobLabelStr.length < max) {
+          results.push($scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0');
         }
+        return results;
       } else if ($scope.rightLabel.length === max) {
-        if ($scope.leftLabelStr) {
-          while ($scope.leftLabelStr.length < max) {
-            $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0';
-          }
+        while ($scope.leftLabelStr.length < max) {
+          $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0';
         }
-        if ($scope.knobLabelStr) {
-          results1 = [];
-          while ($scope.knobLabelStr.length < max) {
-            results1.push($scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0');
-          }
-          return results1;
+        results1 = [];
+        while ($scope.knobLabelStr.length < max) {
+          results1.push($scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0');
         }
+        return results1;
       } else {
-        if ($scope.leftLabelStr) {
-          while ($scope.leftLabelStr.length < max) {
-            $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0';
-          }
+        while ($scope.leftLabelStr.length < max) {
+          $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0';
         }
-        if ($scope.rightLabelStr) {
-          results2 = [];
-          while ($scope.rightLabelStr.length < max) {
-            results2.push($scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0');
-          }
-          return results2;
+        results2 = [];
+        while ($scope.rightLabelStr.length < max) {
+          results2.push($scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0');
         }
+        return results2;
       }
     };
     $scope.$watch('leftLabel', function() {

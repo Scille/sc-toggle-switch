@@ -69,7 +69,8 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
 
 
       postLink = (scope, iElement, iAttrs, ngModelCtrl) ->
-        # The $formatters pipeline. Convert a real model value into a value our view can use.
+        # The $formatters pipeline. Convert a real model value into a value our
+        # view can use.
         ngModelCtrl.$formatters.push (modelValue) ->
           return modelValue
 
@@ -125,37 +126,31 @@ angular.module('sc-toggle-switch', ['stcs-templates'])
     $scope.knobLabelStr = null
 
     $scope.completeWithSpace = (maxLength) ->
-      max = Math.max($scope.leftLabel.length, $scope.rightLabel.length, $scope.knobLabel.length)
-      $scope.leftLabelStr = angular.copy($scope.leftLabel)
-      $scope.rightLabelStr = angular.copy($scope.rightLabel)
-      $scope.knobLabelStr = angular.copy($scope.knobLabel)
+      $scope.leftLabelStr = if $scope.leftLabel? then angular.copy($scope.leftLabel) else ''
+      $scope.rightLabelStr = if $scope.rightLabel? then angular.copy($scope.rightLabel) else ''
+      $scope.knobLabelStr = if $scope.knobLabel? then angular.copy($scope.knobLabel) else ''
+      max = Math.max($scope.leftLabelStr.length, $scope.rightLabelStr.length, $scope.knobLabelStr.length)
 
       if ($scope.leftLabel.length == max)
-        if $scope.rightLabelStr
-          while ($scope.rightLabelStr.length < max)
-            $scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0'
+        while ($scope.rightLabelStr.length < max)
+          $scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0'
 
-        if $scope.knobLabelStr
-          while ($scope.knobLabelStr.length < max)
-            $scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0'
+        while ($scope.knobLabelStr.length < max)
+          $scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0'
 
       else if ($scope.rightLabel.length == max)
-        if $scope.leftLabelStr
-          while ($scope.leftLabelStr.length < max)
-            $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0'
+        while ($scope.leftLabelStr.length < max)
+          $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0'
 
-        if $scope.knobLabelStr
-          while ($scope.knobLabelStr.length < max)
-            $scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0'
+        while ($scope.knobLabelStr.length < max)
+          $scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0'
 
       else
-        if $scope.leftLabelStr
-          while ($scope.leftLabelStr.length < max)
-            $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0'
+        while ($scope.leftLabelStr.length < max)
+          $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0'
 
-        if $scope.rightLabelStr
-          while ($scope.rightLabelStr.length < max)
-            $scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0'
+        while ($scope.rightLabelStr.length < max)
+          $scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0'
 
 
     $scope.$watch 'leftLabel', ->
