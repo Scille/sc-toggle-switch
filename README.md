@@ -11,7 +11,7 @@ $ sudo ln /usr/bin/nodejs /usr/bin/node
 $ sudo apt-get install npm
 $ sudo npm install -g bower grunt-cli grunt-contrib-jshint
 
-$ git clone https://moumout@bitbucket.org/moumout/toggle-switch.git
+$ git clone https://github.com/Scille/sc-toggle-switch
 $ cd toogle-switch
 $ npm install
 $ bower install
