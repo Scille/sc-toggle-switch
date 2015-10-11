@@ -9,8 +9,8 @@
 </span>
 <span ng-show="isSummarised">
   <div class="toggle-switch-summarize" ng-class="switchSize">
-    <span ng-show="knobLabel.length > 0" class="switch-knob" ng-style="{ 'background-color': knobLabelColor }">{{knobLabel}}</span>
     <span ng-show="model != undefined && model" ng-style="{ 'background-color': leftLabelColor }" class="switch-left">{{leftLabel}}</span>
+    <span ng-show="knobLabel.length > 0" class="switch-knob" ng-style="{ 'background-color': knobLabelColor }">{{knobLabel}}</span>
     <span ng-show="model != undefined && !model" ng-style="{ 'background-color': rightLabelColor }" class="switch-right">{{rightLabel}}</span>
   </div>
 </span>
