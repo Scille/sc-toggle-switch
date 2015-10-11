@@ -24,7 +24,7 @@ Launch the demo with:
 $ grunt serve
 ```
 
-## Other toogle-switch
+## Other toggle-switch
 
 * see [angular-bootstrap-switch](https://github.com/frapontillo/angular-bootstrap-switch)
 * see [bootstrap-switch](https://github.com/nostalgiaz/bootstrap-switch)
