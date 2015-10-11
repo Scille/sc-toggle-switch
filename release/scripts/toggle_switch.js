@@ -18,7 +18,6 @@
         rightLabelColor: '@',
         leftValue: '=?',
         rightValue: '=?',
-        defaultValue: '=?',
         knobLabelColor: '@',
         borderColor: '@'
       },
@@ -68,9 +67,6 @@
         if (angular.isUndefined(tAttrs.rightValue)) {
           tAttrs.rightValue = 'false';
         }
-        if (angular.isUndefined(tAttrs.defaultValue)) {
-          tAttrs.defaultValue = void 0;
-        }
         return postLink = function(scope, iElement, iAttrs, ngModelCtrl) {
           ngModelCtrl.$formatters.push(function(modelValue) {
             return modelValue;
@@ -98,24 +94,24 @@
     };
   }).controller('toggleSwitchController', function($scope) {
 
-    /* Define local value and bind it with desired values */
+    /* Define localModel to bind model on 'true/false' value */
     var max;
     $scope.localModel = void 0;
-    if ($scope.model == null) {
-      $scope.defaultValue = $scope.model;
-    }
-    if ($scope.defaultValue === $scope.leftValue) {
-      $scope.localModel = true;
-      $scope.model = $scope.leftValue;
-    }
-    if ($scope.defaultValue === $scope.rightValue) {
-      $scope.localModel = false;
-      $scope.model = $scope.rightValue;
-    }
 
     /* Update model when we click on the toggle-switch. */
     $scope.updateModel = function() {
       if (!$scope.isDisabled) {
+
+        /* For first click, if model is already set, we set localModel
+            belong to model value
+         */
+        if ($scope.localModel === void 0) {
+          if ($scope.model === $scope.leftValue) {
+            $scope.localModel = true;
+          } else if ($scope.model === $scope.rightValue) {
+            $scope.localModel = false;
+          }
+        }
         $scope.localModel = !$scope.localModel;
         if ($scope.localModel === true) {
           return $scope.model = $scope.leftValue;
