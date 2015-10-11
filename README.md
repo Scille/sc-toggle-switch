@@ -12,7 +12,7 @@ $ sudo apt-get install npm
 $ sudo npm install -g bower grunt-cli grunt-contrib-jshint
 
 $ git clone https://github.com/Scille/sc-toggle-switch
-$ cd toogle-switch
+$ cd sc-toggle-switch
 $ npm install
 $ bower install
 ```
