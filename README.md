@@ -36,3 +36,7 @@ $ grunt serve
 
 DUBOIS Romain, Engineer R&D at [SCILLE](http://http://scille.eu/)
 <dubois.rom@gmail.com>
+
+## License
+
+Licensed under the MIT License
