@@ -1,16 +1,15 @@
 {
-  "name": "Scille Toggle Switch",
+  "name": "SCILLE_toogle_switch",
   "version": "1.0.5",
+  "description": "Create toggle switches.",
   "authors": [
-    "duboisR <dubois.rom@gmail.com>",
+    "Romain Dubois <dubois.rom@gmail.com>",
     "Vincent Mézino <vincent.mezino@gmail.com>"
   ],
   "main" : [
-    "./release/scripts/toggle_switch.js",
-    "./release/scripts/populate_template_cache.js",
-    "./release/css/toggle_switch.css"
+    "./release/scripts/toggle_switch.min.js",
+    "./release/css/toggle_switch.min.css"
   ],
-  "description": "Create toggle switches.",
   "ignore": [
     "**/.*",
     "node_modules",

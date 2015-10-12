@@ -3,16 +3,22 @@
   "version": "1.0.5",
   "description": "Create toggle switches.",
   "author": "DUBOIS Romain",
-  "contributors" : [
-    {"name" : "DUBOIS Romain", "email" : "dubois.rom@gmail.com"},
-    {"name" : "MEZINO Vincent", "email" : "vincent.mezino@gmail.com"}
+  "contributors": [
+    {
+      "name": "DUBOIS Romain",
+      "email": "dubois.rom@gmail.com"
+    },
+    {
+      "name": "MEZINO Vincent",
+      "email": "vincent.mezino@gmail.com"
+    }
   ],
   "scripts": {
     "test": "grunt test"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/Scille/sc-toggle-switch"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Scille/sc-toggle-switch"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -28,7 +34,10 @@
     "grunt-open": "~0.2.3",
     "grunt-wiredep": "~2.0.0",
     "jit-grunt": "~0.9.1",
-    "load-grunt-tasks": "~3.3.0"
+    "load-grunt-tasks": "~3.3.0",
+    "grunt-contrib-concat": "~0.5.1",
+    "grunt-contrib-cssmin": "~0.14.0",
+    "grunt-contrib-uglify": "~0.9.2"
   },
   "license": "MIT"
 }

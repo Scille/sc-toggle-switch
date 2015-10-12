@@ -11,35 +11,12 @@ module.exports = (grunt) ->
     dist: "dist"
     demo: "demo"
     release: "release"
+    tmp: ".tmp"
 
 
 
   ### Define the configuration for all the tasks ###
   grunt.initConfig
-
-    # Cache template for packaging
-    html2js:
-      options:
-        base: ''
-        module: 'stcs-templates'
-        singleModule: true
-        useStrict: true
-        htmlmin:
-          collapseBooleanAttributes: true
-          collapseWhitespace: true
-          removeAttributeQuotes: true
-          removeComments: true
-          removeEmptyAttributes: true
-          removeRedundantAttributes: true
-          removeScriptTypeAttributes: true
-          removeStyleLinkTypeAttributes: true
-      dist:
-        src: ['<%= yeoman.src %>/html_template/**/*.html']
-        dest: '<%= yeoman.dist %>/scripts/populate_template_cache.js'
-      release:
-        src: ['<%= yeoman.src %>/html_template/**/*.html']
-        dest: '<%= yeoman.release %>/scripts/populate_template_cache.js'
-
 
     # Project settings
     yeoman: appConfig
@@ -58,25 +35,30 @@ module.exports = (grunt) ->
 
       coffee:
         files: ["<%= yeoman.src %>/coffee/**/*.{coffee,litcoffee,coffee.md}"]
-        tasks: ["newer:coffee:dist"]
+        tasks: [
+          "newer:coffee"
+          "newer:concat:tmp_js"
+          "newer:uglify:dist"
+        ]
 
       less:
         files: ["<%= yeoman.src %>/less/**/*.less"]
-        tasks: ["newer:less:dist"]
+        tasks: [
+          "newer:less"
+          "newer:concat:tmp_css"
+          "newer:cssmin:dist"
+        ]
 
       html_template:
         files: ["<%= yeoman.src %>/html_template/**/*.html"]
-        tasks: [
-          "newer:copy:html_template"
-          "newer:html2js:dist"
-        ]
+        tasks: ["newer:html2js"]
 
       demo:
         files: [
           "<%= yeoman.demo %>/**/*.html"
           "<%= yeoman.demo %>/**/*.js"
         ]
-        tasks: ["newer:copy:demo"]
+        tasks: ["newer:copy:dist"]
 
       serve:
         files: [
@@ -120,21 +102,12 @@ module.exports = (grunt) ->
         sourceMap: true
         sourceRoot: ""
 
-      dist:
+      tmp:
         files: [
           expand: true
           cwd: "<%= yeoman.src %>/coffee"
           src: "**/*.coffee"
-          dest: "<%= yeoman.dist %>/scripts"
-          ext: ".js"
-        ]
-
-      release:
-        files: [
-          expand: true
-          cwd: "<%= yeoman.src %>/coffee"
-          src: "**/*.coffee"
-          dest: "<%= yeoman.release %>/scripts"
+          dest: "<%= yeoman.tmp %>/scripts"
           ext: ".js"
         ]
 
@@ -145,39 +118,39 @@ module.exports = (grunt) ->
         yuicompress: true
         optimization: 2
 
-      dist:
+      tmp:
         files: [
           expand: true
           cwd: "<%= yeoman.src %>/less"
           src: "**/*.less"
-          dest: "<%= yeoman.dist %>/css"
+          dest: "<%= yeoman.tmp %>/css"
           ext: ".css"
         ]
 
-      release:
-        files: [
-          expand: true
-          cwd: "<%= yeoman.src %>/less"
-          src: "**/*.less"
-          dest: "<%= yeoman.release %>/css"
-          ext: ".css"
-        ]
+    # Cache template for packaging
+    html2js:
+      options:
+        base: ''
+        module: 'sc-toggle-switch-template'
+        singleModule: true
+        useStrict: true
+        htmlmin:
+          collapseBooleanAttributes: true
+          collapseWhitespace: true
+          removeAttributeQuotes: true
+          removeComments: true
+          removeEmptyAttributes: true
+          removeRedundantAttributes: true
+          removeScriptTypeAttributes: true
+          removeStyleLinkTypeAttributes: true
+
+      tmp:
+        src: ['<%= yeoman.src %>/html_template/**/*.html']
+        dest: '<%= yeoman.tmp %>/scripts/toggle_switch_template.js'
 
     # Copies remaining files to places other tasks can use
     copy:
-      html_template:
-        files: [
-          expand: true
-          dot: true
-          cwd: "<%= yeoman.src %>"
-          dest: "<%= yeoman.dist %>"
-          src: [
-            "*.html"
-            "**/*.html"
-          ]
-        ]
-
-      demo:
+      dist:
         files: [
           expand: true
           dot: true
@@ -191,29 +164,57 @@ module.exports = (grunt) ->
           ]
         ]
 
+    # Concatenates Javascript and/or CSS files
+    concat:
+      tmp_js:
+        src: ['<%= yeoman.tmp %>/scripts/**/*.js']
+        dest: '<%= yeoman.tmp %>/concat/toggle_switch.js'
+
+      tmp_css:
+        src: ['<%= yeoman.tmp %>/css/**/*.css']
+        dest: '<%= yeoman.tmp %>/concat/toggle_switch.css'
+
+
+    # Minifies the Javascript file
+    uglify:
+      options:
+        # Specify mangle false to prevent changes to your variable and function names
+        mangle: false
+        # The banner is inserted at the top of the output
+        banner: '/*! toggle-switch <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+
+      dist:
+        files: '<%= yeoman.dist %>/scripts/toggle_switch.min.js': ['<%= concat.tmp_js.dest %>']
+
       release:
-        files: [
-          expand: true
-          dot: true
-          cwd: "<%= yeoman.src %>"
-          dest: "<%= yeoman.release %>"
-          src: [
-            "*.html"
-            "**/*.html"
-          ]
-        ]
+        files: '<%= yeoman.release %>/scripts/toggle_switch.min.js': ['<%= concat.tmp_js.dest %>']
+
+    # Minifies the CSS file
+    cssmin:
+      dist:
+        files: '<%= yeoman.dist %>/css/toggle_switch.min.css': ['<%= concat.tmp_css.dest %>']
+
+      release:
+        files: '<%= yeoman.release %>/css/toggle_switch.min.css': ['<%= concat.tmp_css.dest %>']
 
     # Empties folders to start fresh
     clean:
       dist:
         files: [
           dot: true
-          src: "<%= yeoman.dist %>/**/*"
+          src: [
+            "<%= yeoman.tmp %>"
+            "<%= yeoman.dist %>/**/*"
+            ]
         ]
+
       release:
         files: [
           dot: true
-          src: "<%= yeoman.release %>/**/*"
+          src: [
+            "<%= yeoman.tmp %>"
+            "<%= yeoman.release %>/**/*"
+          ]
         ]
 
   ### Custom tasks ###
@@ -221,11 +222,13 @@ module.exports = (grunt) ->
     "clean:dist"
     "bower"
     "wiredep"
-    "copy:html_template"
-    "copy:demo"
-    "less:dist"
-    "coffee:dist"
-    "html2js:dist"
+    "copy:dist"
+    "less"
+    "coffee"
+    "html2js"
+    "concat"
+    "uglify:dist"
+    "cssmin:dist"
   ]
 
   grunt.registerTask "serve", [
@@ -242,8 +245,10 @@ module.exports = (grunt) ->
 
   grunt.registerTask "release", [
     "clean:release"
-    "copy:release"
-    "less:release"
-    "coffee:release"
-    "html2js:release"
+    "less"
+    "coffee"
+    "html2js"
+    "concat"
+    "uglify:release"
+    "cssmin:release"
   ]
