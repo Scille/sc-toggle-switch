@@ -72,26 +72,29 @@ angular.module('sc-toggle-switch', ['sc-toggle-switch-template'])
         # The $formatters pipeline. Convert a real model value into a value our
         # view can use.
         ngModelCtrl.$formatters.push (modelValue) ->
-          return modelValue
+          if (modelValue == scope.leftValue)
+            return true
+          else if (modelValue == scope.rightValue)
+            return false
 
         # The $parsers Pipeline. Converts the $viewValue into the $modelValue.
         ngModelCtrl.$parsers.push (viewValue) ->
-          return viewValue
+          return if (viewValue) then angular.copy(scope.leftValue) else angular.copy(scope.rightValue)
 
         # Updating the UI to reflect $viewValue
         ngModelCtrl.$render = ->
-          scope.model = ngModelCtrl.$viewValue
+          scope.localModel = ngModelCtrl.$viewValue
 
         # Updating $viewValue when the UI changes
-        scope.$watch 'model', (value) ->
+        scope.$watch 'localModel', (value) ->
           if value?
-            if value == scope.leftValue
+            if value
               scope.switchStatus = "switch-on"
             else
               scope.switchStatus = "switch-off"
-            ngModelCtrl.$setViewValue(scope.model)
           else
             scope.switchStatus = "switch-undef"
+          ngModelCtrl.$setViewValue(value)
 
 
   .controller 'toggleSwitchController', ($scope) ->
@@ -102,22 +105,7 @@ angular.module('sc-toggle-switch', ['sc-toggle-switch-template'])
     ### Update model when we click on the toggle-switch. ###
     $scope.updateModel = ->
       if (!$scope.isDisabled)
-        ### For first click, if model is already set, we set localModel
-            belong to model value ###
-        if $scope.localModel == undefined
-          if $scope.model == $scope.leftValue
-            $scope.localModel = true
-          else if $scope.model == $scope.rightValue
-            $scope.localModel = false
-
         $scope.localModel = !$scope.localModel
-        # Assume that in localModel, left = true, and right = false
-        if $scope.localModel == true
-          $scope.model = $scope.leftValue
-        else if $scope.localModel == false
-          $scope.model = $scope.rightValue
-        else
-          $scope.model = undefined
 
     ### Resize labels field Functions ###
     max = null

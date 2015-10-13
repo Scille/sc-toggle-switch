@@ -78,6 +78,23 @@
     <div toggle-switch-directive is-summarised="summarize" ng-model="switchModel" knob-label="TV"></div>
   </div>
 
+  <h2>Value labels</h2>
+  <p>Switch Value: {{switchModelValue}}</p>
+  <div ng-init="leftLV1 = true; rightLV1 = false">
+    <div>
+      <input type="text" name="left value" ng-model="leftLV1">
+      <input type="text" name="right value" ng-model="rightLV1">
+    </div></br>
+    <div toggle-switch-directive ng-model="switchModelValue" left-value="leftLV1" right-value="rightLV1"></div>
+  </div></br>
+  <div ng-init="leftLV2 = true; rightLV2 = false">
+    <div>
+      <input type="text" name="left value" ng-model="leftLV2">
+      <input type="text" name="right value" ng-model="rightLV2">
+    </div></br>
+    <div toggle-switch-directive ng-model="switchModelValue" left-value="leftLV2" right-value="rightLV2"></div>
+  </div>
+
   <!-- bower:js -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
