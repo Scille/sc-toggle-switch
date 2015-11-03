@@ -6,7 +6,7 @@
     "Romain Dubois <dubois.rom@gmail.com>",
     "Vincent Mézino <vincent.mezino@gmail.com>"
   ],
-  "main" : [
+  "main": [
     "./release/scripts/toggle_switch.min.js",
     "./release/css/toggle_switch.min.css"
   ],
@@ -19,7 +19,8 @@
   ],
   "dependencies": {
     "angular-bootstrap": "~0.13.4",
-    "angular": "~1.4.7"
+    "angular": "~1.4.7",
+    "angular-mocks": "~1.4.7"
   },
   "licence": "MIT"
 }

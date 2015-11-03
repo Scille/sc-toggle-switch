@@ -9,6 +9,7 @@ module.exports = (grunt) ->
   appConfig =
     src: "src"
     dist: "dist"
+    test: "test"
     demo: "demo"
     release: "release"
     tmp: ".tmp"
@@ -217,6 +218,15 @@ module.exports = (grunt) ->
           ]
         ]
 
+    # Unit Testing with Karma
+    karma:
+      options:
+        configFile: "<%= yeoman.test %>/karma_conf.js"
+
+      unit:
+        singleRun: true
+
+
   ### Custom tasks ###
   grunt.registerTask "build", [
     "clean:dist"
@@ -229,6 +239,11 @@ module.exports = (grunt) ->
     "concat"
     "uglify:dist"
     "cssmin:dist"
+  ]
+
+  grunt.registerTask "unit-test", [
+    "build"
+    "karma"
   ]
 
   grunt.registerTask "serve", [
