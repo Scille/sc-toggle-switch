@@ -221,7 +221,7 @@ module.exports = (grunt) ->
     # Unit Testing with Karma
     karma:
       options:
-        configFile: "<%= yeoman.test %>/karma_conf.js"
+        configFile: "<%= yeoman.test %>/karma_conf.coffee"
 
       unit:
         singleRun: true
