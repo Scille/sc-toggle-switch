@@ -63,6 +63,7 @@ describe 'Directives ::', ->
       elementM = $compile('<div toggle-switch-directive switch-size="medium" ng-model="switchModel"></div>')($rootScope)
       elementL = $compile('<div toggle-switch-directive switch-size="large" ng-model="switchModel"></div>')($rootScope)
       elementXL = $compile('<div toggle-switch-directive switch-size="xlarge" ng-model="switchModel"></div>')($rootScope)
+      elementError = $compile('<div toggle-switch-directive switch-size="unsized" ng-model="switchModel"></div>')($rootScope)
 
       # Fire all the watches
       $rootScope.$digest()
@@ -72,6 +73,7 @@ describe 'Directives ::', ->
       checkAttributes(elementM, false, false, true, 'switch-medium', 'On', 'Off', '\u00a0', 'blue', 'red', 'white', 'gray', true, false)
       checkAttributes(elementL, false, false, true, 'switch-large', 'On', 'Off', '\u00a0', 'blue', 'red', 'white', 'gray', true, false)
       checkAttributes(elementXL, false, false, true, 'switch-xlarge', 'On', 'Off', '\u00a0', 'blue', 'red', 'white', 'gray', true, false)
+      checkAttributes(elementError, false, false, true, 'switch-medium', 'On', 'Off', '\u00a0', 'blue', 'red', 'white', 'gray', true, false)
 
 
     it '4. Replaces the element with the appropriate content (Colors)', ->
@@ -82,3 +84,45 @@ describe 'Directives ::', ->
       $rootScope.$digest()
 
       checkAttributes(element, false, false, true, 'switch-medium', 'On', 'Off', '\u00a0', 'red', 'green', 'black', 'blue', true, false)
+
+
+    it '5. Replaces the element with the appropriate content (Animate)', ->
+      # Compile a piece of HTML containing the directive
+      element = $compile('<div toggle-switch-directive ng-model="switchModel" is-animated="false"></div>')($rootScope)
+
+      # Fire all the watches
+      $rootScope.$digest()
+
+      checkAttributes(element, false, false, false, 'switch-medium', 'On', 'Off', '\u00a0', 'blue', 'red', 'white', 'gray', true, false)
+
+
+    it '6. Replaces the element with the appropriate content (Disabled)', ->
+      # Compile a piece of HTML containing the directive
+      element = $compile('<div toggle-switch-directive ng-model="switchModel" is-disabled="true"></div>')($rootScope)
+
+      # Fire all the watches
+      $rootScope.$digest()
+
+      checkAttributes(element, false, true, true, 'switch-medium', 'On', 'Off', '\u00a0', 'blue', 'red', 'white', 'gray', true, false)
+
+
+    it '7. Replaces the element with the appropriate content (Summarize)', ->
+      # Compile a piece of HTML containing the directive
+      element = $compile('<div toggle-switch-directive ng-model="switchModel" is-summarised="true"></div>')($rootScope)
+
+      # Fire all the watches
+      $rootScope.$digest()
+
+      checkAttributes(element, true, false, true, 'switch-medium', 'On', 'Off', '\u00a0', 'blue', 'red', 'white', 'gray', true, false)
+
+
+    it '8. Replaces the element with the appropriate content (Labels Value)', ->
+      # Compile a piece of HTML containing the directive
+      elementBool = $compile('<div toggle-switch-directive ng-model="switchModel" left-value="false" right-value="true"></div>')($rootScope)
+      elementStr = $compile('<div toggle-switch-directive ng-model="switchModel" left-value="\'L\'" right-value="\'R\'"></div>')($rootScope)
+
+      # Fire all the watches
+      $rootScope.$digest()
+
+      checkAttributes(elementBool, false, false, true, 'switch-medium', 'On', 'Off', '\u00a0', 'blue', 'red', 'white', 'gray', false, true)
+      checkAttributes(elementStr, false, false, true, 'switch-medium', 'On', 'Off', '\u00a0', 'blue', 'red', 'white', 'gray', 'L', 'R')

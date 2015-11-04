@@ -73,5 +73,12 @@ module.exports = (config) ->
     ]
 
     # Plugin settings
-    coverageReporter: type: 'text'
-  return
+    coverageReporter:
+      dir: '.tmp/'
+
+      reporters: [
+          type: 'html'
+          subdir: 'report-html'
+        ,
+          type: 'text'
+      ]
