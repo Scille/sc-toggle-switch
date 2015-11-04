@@ -46,8 +46,8 @@ module.exports = (config) ->
     # - IE (only Windows)
     browsers: [
       'PhantomJS'
-      'Chrome'
-      'Firefox'
+      # 'Chrome'
+      # 'Firefox'
     ]
 
     # Progress is the default reporter.

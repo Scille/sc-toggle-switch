@@ -35,8 +35,8 @@ describe 'Directives ::', ->
     )
 
 
-    ### TEST 01 ###
-    it '1. Replaces the element with the appropriate content (Undef)', ->
+    ### TEST Undef ###
+    it 'Replaces the element with the appropriate content (Undef)', ->
       # Compile a piece of HTML containing the directive
       element = $compile('<div toggle-switch-directive ng-model="switchModel"></div>')($rootScope)
 
@@ -46,8 +46,8 @@ describe 'Directives ::', ->
       checkAttributes(element, false, false, true, 'switch-medium', 'On', 'Off', '\u00a0', 'blue', 'red', 'white', 'gray', true, false)
 
 
-    ### TEST 02 ###
-    it '2. Replaces the element with the appropriate content (Labels)', ->
+    ### TEST Labels ###
+    it 'Replaces the element with the appropriate content (Labels)', ->
       # Compile a piece of HTML containing the directive
       element = $compile('<div toggle-switch-directive ng-model="switchModel" left-label="Yes" right-label="No" knob-label="TV"></div>')($rootScope)
 
@@ -57,8 +57,8 @@ describe 'Directives ::', ->
       checkAttributes(element, false, false, true, 'switch-medium', 'Yes', 'No', 'TV', 'blue', 'red', 'white', 'gray', true, false)
 
 
-    ### TEST 03 ###
-    it '3. Replaces the element with the appropriate content (Sizes)', ->
+    ### TEST Sizes ###
+    it 'Replaces the element with the appropriate content (Sizes)', ->
       # Compile a piece of HTML containing the directive
       elementXS = $compile('<div toggle-switch-directive switch-size="xsmall" ng-model="switchModel"></div>')($rootScope)
       elementS = $compile('<div toggle-switch-directive switch-size="small" ng-model="switchModel"></div>')($rootScope)
@@ -78,8 +78,8 @@ describe 'Directives ::', ->
       checkAttributes(elementError, false, false, true, 'switch-medium', 'On', 'Off', '\u00a0', 'blue', 'red', 'white', 'gray', true, false)
 
 
-    ### TEST 04 ###
-    it '4. Replaces the element with the appropriate content (Colors)', ->
+    ### TEST Colors ###
+    it 'Replaces the element with the appropriate content (Colors)', ->
       # Compile a piece of HTML containing the directive
       element = $compile('<div toggle-switch-directive ng-model="switchModel" border-color="blue" left-label-color="red" knob-label-color="black" right-label-color="green"></div>')($rootScope)
 
@@ -89,8 +89,8 @@ describe 'Directives ::', ->
       checkAttributes(element, false, false, true, 'switch-medium', 'On', 'Off', '\u00a0', 'red', 'green', 'black', 'blue', true, false)
 
 
-    ### TEST 05 ###
-    it '5. Replaces the element with the appropriate content (Animate)', ->
+    ### TEST Animate ###
+    it 'Replaces the element with the appropriate content (Animate)', ->
       # Compile a piece of HTML containing the directive
       element = $compile('<div toggle-switch-directive ng-model="switchModel" is-animated="false"></div>')($rootScope)
 
@@ -100,8 +100,8 @@ describe 'Directives ::', ->
       checkAttributes(element, false, false, false, 'switch-medium', 'On', 'Off', '\u00a0', 'blue', 'red', 'white', 'gray', true, false)
 
 
-    ### TEST 06 ###
-    it '6. Replaces the element with the appropriate content (Disabled)', ->
+    ### TEST Disabled ###
+    it 'Replaces the element with the appropriate content (Disabled)', ->
       # Compile a piece of HTML containing the directive
       element = $compile('<div toggle-switch-directive ng-model="switchModel" is-disabled="true"></div>')($rootScope)
 
@@ -111,8 +111,8 @@ describe 'Directives ::', ->
       checkAttributes(element, false, true, true, 'switch-medium', 'On', 'Off', '\u00a0', 'blue', 'red', 'white', 'gray', true, false)
 
 
-    ### TEST 07 ###
-    it '7. Replaces the element with the appropriate content (Summarize)', ->
+    ### TEST Summarize ###
+    it 'Replaces the element with the appropriate content (Summarize)', ->
       # Compile a piece of HTML containing the directive
       element = $compile('<div toggle-switch-directive ng-model="switchModel" is-summarised="true"></div>')($rootScope)
 
@@ -121,9 +121,9 @@ describe 'Directives ::', ->
 
       checkAttributes(element, true, false, true, 'switch-medium', 'On', 'Off', '\u00a0', 'blue', 'red', 'white', 'gray', true, false)
 
-    
-    ### TEST 08 ###
-    it '8. Replaces the element with the appropriate content (Labels Value)', ->
+
+    ### TEST Labels Value ###
+    it 'Replaces the element with the appropriate content (Labels Value)', ->
       # Compile a piece of HTML containing the directive
       elementBool = $compile('<div toggle-switch-directive ng-model="switchModel" left-value="false" right-value="true"></div>')($rootScope)
       elementStr = $compile('<div toggle-switch-directive ng-model="switchModel" left-value="\'L\'" right-value="\'R\'"></div>')($rootScope)

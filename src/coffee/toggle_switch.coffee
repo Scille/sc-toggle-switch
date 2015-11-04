@@ -113,20 +113,20 @@ angular.module('sc-toggle-switch', ['sc-toggle-switch-template'])
     $scope.rightLabelStr = null
     $scope.knobLabelStr = null
 
-    $scope.completeWithSpace = (maxLength) ->
+    $scope.completeWithSpace = () ->
       $scope.leftLabelStr = if $scope.leftLabel? then angular.copy($scope.leftLabel) else ''
       $scope.rightLabelStr = if $scope.rightLabel? then angular.copy($scope.rightLabel) else ''
       $scope.knobLabelStr = if $scope.knobLabel? then angular.copy($scope.knobLabel) else ''
       max = Math.max($scope.leftLabelStr.length, $scope.rightLabelStr.length, $scope.knobLabelStr.length)
 
-      if ($scope.leftLabel.length == max)
+      if ($scope.leftLabelStr.length == max)
         while ($scope.rightLabelStr.length < max)
           $scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0'
 
         while ($scope.knobLabelStr.length < max)
           $scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0'
 
-      else if ($scope.rightLabel.length == max)
+      else if ($scope.rightLabelStr.length == max)
         while ($scope.leftLabelStr.length < max)
           $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0'
 
