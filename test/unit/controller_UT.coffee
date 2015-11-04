@@ -5,7 +5,7 @@ localStorage.clear()
 describe 'Controllers ::', ->
 
   # Load the module, which contains the directive
-  beforeEach(module('app'))
+  beforeEach(module('sc-toggle-switch'))
 
 
   # Store references to $controller, so it is available to all tests in this describe block

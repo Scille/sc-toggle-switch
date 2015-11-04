@@ -242,7 +242,6 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask "unit-test", [
-    "build"
     "karma"
   ]
 

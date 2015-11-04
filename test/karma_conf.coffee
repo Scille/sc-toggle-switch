@@ -11,9 +11,11 @@ module.exports = (config) ->
       'bower_components/angular/angular.js'
       'bower_components/angular-mocks/angular-mocks.js'
 
-      # include js files
-      'dist/app.js'
-      'dist/scripts/toggle_switch.min.js'
+      # include html files
+      'src/html_template/toggle_switch_template.html'
+
+      # include coffee files
+      'src/coffee/toggle_switch.coffee'
 
       # include unit test specs
       'test/unit/*.coffee'
@@ -57,8 +59,8 @@ module.exports = (config) ->
 
     # Map of preprocessors that is used mostly for plugins
     preprocessors:
-      'dist/app.js': [ 'coverage' ]
-      'dist/scripts/toggle_switch.min.js': [ 'coverage' ]
+      'src/html_template/toggle_switch_template.html': ['ng-html2js']
+      'src/coffee/toggle_switch.coffee': ['coffee', 'coverage']
       'test/unit/*.coffee': ['coffee']
 
     # Which plugins to enable
@@ -70,9 +72,13 @@ module.exports = (config) ->
       'karma-phantomjs-launcher'
       'karma-coverage'
       'karma-coffee-preprocessor'
+      'karma-ng-html2js-preprocessor'
     ]
 
     # Plugin settings
+    ngHtml2JsPreprocessor:
+      moduleName: 'sc-toggle-switch-template'
+
     coverageReporter:
       dir: '.tmp/'
 

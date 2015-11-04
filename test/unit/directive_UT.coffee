@@ -21,7 +21,7 @@ describe 'Directives ::', ->
     expect(element.isolateScope().rightValue).toEqual(rightValue)
 
   # Load the module, which contains the directive
-  beforeEach(module('app'))
+  beforeEach(module('sc-toggle-switch'))
 
   # Store references to $rootScope and $compile, so they are available to all tests in this describe block
   describe 'toggleSwitchDirective\n', ->
@@ -121,7 +121,7 @@ describe 'Directives ::', ->
 
       checkAttributes(element, true, false, true, 'switch-medium', 'On', 'Off', '\u00a0', 'blue', 'red', 'white', 'gray', true, false)
 
-
+    
     ### TEST 08 ###
     it '8. Replaces the element with the appropriate content (Labels Value)', ->
       # Compile a piece of HTML containing the directive
