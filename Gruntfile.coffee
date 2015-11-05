@@ -52,7 +52,11 @@ module.exports = (grunt) ->
 
       html_template:
         files: ["<%= yeoman.src %>/html_template/**/*.html"]
-        tasks: ["newer:html2js"]
+        tasks: [
+          "newer:html2js"
+          "newer:concat:tmp_js"
+          "newer:uglify:dist"
+        ]
 
       demo:
         files: [
