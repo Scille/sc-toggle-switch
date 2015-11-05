@@ -230,6 +230,21 @@ module.exports = (grunt) ->
       unit:
         singleRun: true
 
+    # E2E Testing with Protractor
+    protractor:
+      options:
+        configFile: "<%= yeoman.test %>/protractor_conf.coffee"
+        noColor: false
+        # Set to true if you would like to use the Protractor command line debugging tool
+        # debug: true
+        # Additional arguments that are passed to the webdriver command
+        args: { }
+
+      e2e:
+        options:
+          # Stops Grunt process if a test fails
+          keepAlive: false
+
 
   ### Custom tasks ###
   grunt.registerTask "build", [
@@ -247,6 +262,13 @@ module.exports = (grunt) ->
 
   grunt.registerTask "unit-test", [
     "karma"
+  ]
+
+  grunt.registerTask "e2e-test", [
+    "build"
+    "express"
+    "open"
+    "protractor"
   ]
 
   grunt.registerTask "serve", [
