@@ -47,7 +47,8 @@ angular.module('yourModule', ['sc-toggle-switch'
 
 The directive can work on both attribute and element levels.
 ```html
-<div toggle-switch-directive ng-model="switchModel"
+<div toggle-switch-directive
+    ng-model="switchModel"
     is-disabled="isDisabled"
     is-summarised="isSummarised"
     is-animated="isAnimated"
@@ -64,23 +65,43 @@ The directive can work on both attribute and element levels.
 </div>
 ```
 
-TODO
+*Note:*
+* **ng-model:** Will try to bind to the property given by evaluating the expression on the current scope. If the property doesn't already exist on this scope, it will be created implicitly and added to the scope.
+* **is-disabled:** Determines if the switch is disabled or not. 
+* **is-summarised:** Determines if the switch is summarised or not.
+* **is-animated:** Determines if the switch animates when toggled.
+* **switch-size:** Sets the size class. It can be `xsmall`, `small`, `medium` (as default), `large`, `xlarge`.
+* **left-label:** Sets the left label text.
+* **right-label:** Sets the right label text.
+* **knob-label:** Sets the knob label text.
+* **left-label-color:** Sets the left label background color.
+* **right-label-color:** Sets the right label background color.
+* **left-value:** Sets the left position value. It is `true` as default.
+* **right-value:** Sets the right position value. It is `false` as default.
+* **knob-label-color:** Sets the knob label background color.
+* **border-color:** Sets the border color.
 
 
 ## Directory structure
 
-* demo - contains JavaScript file and HTML file. (Used by grunt to run the demonstration)
-* release - contains the production minified release of the app.
-  * css - minified CSS file.
-  * script - minified JavaScript file.
-* src - contains CoffeeScript sources, LESS styles and other assets.
-  * src/coffee - CoffeeScript sources.
-  * src/html_template - HTML that contains Angular-specific elements and attributes.
-  * src/less - LESS sources.
-* test - contains tests for the application.
-  * test/e2e -  end-to-end tests for AngularJS applications. (Protractor)
-  * test/unit - unit tests for AngularJS components. (Karma)
-
+```
+sc-toggle-switch/
+    |
+    |- demo/                    -> Contains JavaScript file and HTML file. (Used by Grunt to run the demonstration)
+    |
+    |- release/                 -> Contains the production minified release of the app.
+    |   |- css/                     -> Minified CSS file.
+    |   '- script/                  -> Minified JavaScript file.
+    |
+    |- src/                     -> Contains CoffeeScript sources, LESS styles and other assets.
+    |   |- coffee/                  -> CoffeeScript sources.
+    |   |- html_template/           -> HTML that contains Angular-specific elements and attributes.
+    |   '- less/                    -> LESS sources.
+    |
+    '- test/                    -> Contains tests for the application.
+        |- e2e/                     -> End-To-End tests for AngularJS applications. (Protractor)
+        '- unit/                    -> Unit tests for AngularJS components. (Karma)
+```
 
 ## Demonstration
 
@@ -92,7 +113,31 @@ $ grunt serve
 
 ## Running tests
 
-TODO
+### Unit Tests (Karma)
+
+Executing Unit Tests with Grunt:
+```bash
+$ grunt unit-test
+```
+
+Executing Unit Tests by Karma:
+```bash
+$ karma start ./test/karma_conf.coffee --single-run
+```
+
+It will also generate HTML test coverage report inside ./.tmp/report-html directory.
+
+### End-To-End Tests (Protractor)
+
+Executing End-To-End Tests with Grunt:
+```bash
+$ grunt e2e-test
+```
+
+Executing End-To-End Tests by Protractor:
+```bash
+$ protractor ./test/protractor_conf.coffee
+```
 
 
 ## Other toggle-switch
