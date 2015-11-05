@@ -28,7 +28,7 @@ $ bower install
 ### Install with bower
 
 ```bash
-$ bower install sc-toggle-switch
+$ bower install sc-toggle-switch --save-dev
 ```
 
 
