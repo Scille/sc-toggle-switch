@@ -103,12 +103,16 @@ sc-toggle-switch/
         '- unit/                    -> Unit tests for AngularJS components. (Karma)
 ```
 
+
 ## Demonstration
 
-Launch the demo with:
+Executing demo  with Grunt:
 ```bash
 $ grunt serve
 ```
+
+Executing demo on GitHub Pages:
+[scille.github.io/sc-toggle-switch](http://scille.github.io/sc-toggle-switch/)
 
 
 ## Running tests
