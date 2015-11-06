@@ -7,7 +7,7 @@
     <meta name="description" content="sc-toggle-switch : ">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-    <link href="https://github.com/Scille/sc-toggle-switch/blob/master/release/css/toggle_switch.min.css" media="all" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" media="all" href="https://rawgit.com/Scille/sc-toggle-switch/master/release/css/toggle_switch.min.css">
 
     <title>sc-toggle-switch</title>
   </head>
@@ -41,30 +41,29 @@
 
         <h3><a id="registration" class="anchor" href="#registration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Registration</h3>
         <p>To be able to use the directive, you need to register the sc-toggle-switch module as a dependency:</p>
-        <div class="highlight highlight-source-js"><pre>angular.module(<span class="pl-s"><span class="pl-pds">'</span>yourModule<span class="pl-pds">'</span></span>, [<span class="pl-s"><span class="pl-pds">'</span>sc-toggle-switch<span class="pl-pds">'</span></span>
-            <span class="pl-c">// other dependencies</span>
-        ]);</pre></div>
+<div class="highlight highlight-source-js"><pre>angular.module(<span class="pl-s"><span class="pl-pds">'</span>yourModule<span class="pl-pds">'</span></span>, [<span class="pl-s"><span class="pl-pds">'</span>sc-toggle-switch<span class="pl-pds">'</span></span>
+    <span class="pl-c">// other dependencies</span>
+]);</pre></div>
 
         <h3><a id="directive" class="anchor" href="#directive" aria-hidden="true"><span class="octicon octicon-link"></span></a>Directive</h3>
         <p>The directive can work on both attribute and element levels.</p>
-        <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
-          <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
-          <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>isDisabled<span class="pl-pds">"</span></span>
-          <span class="pl-e">is-summarised</span>=<span class="pl-s"><span class="pl-pds">"</span>isSummarised<span class="pl-pds">"</span></span>
-          <span class="pl-e">is-animated</span>=<span class="pl-s"><span class="pl-pds">"</span>isAnimated<span class="pl-pds">"</span></span>
-          <span class="pl-e">switch-size</span>=<span class="pl-s"><span class="pl-pds">"</span>{{switchSize}}<span class="pl-pds">"</span></span>
-          <span class="pl-e">left-label</span>=<span class="pl-s"><span class="pl-pds">"</span>{{leftLabel}}<span class="pl-pds">"</span></span>
-          <span class="pl-e">right-label</span>=<span class="pl-s"><span class="pl-pds">"</span>{{rightLabel}}<span class="pl-pds">"</span></span>
-          <span class="pl-e">knob-label</span>=<span class="pl-s"><span class="pl-pds">"</span>{{knobLabel}}<span class="pl-pds">"</span></span>
-          <span class="pl-e">left-label-color</span>=<span class="pl-s"><span class="pl-pds">"</span>{{leftLabelColor}}<span class="pl-pds">"</span></span>
-          <span class="pl-e">right-label-color</span>=<span class="pl-s"><span class="pl-pds">"</span>{{rightLabelColor}}<span class="pl-pds">"</span></span>
-          <span class="pl-e">left-value</span>=<span class="pl-s"><span class="pl-pds">"</span>leftValue<span class="pl-pds">"</span></span>
-          <span class="pl-e">right-value</span>=<span class="pl-s"><span class="pl-pds">"</span>rightValue<span class="pl-pds">"</span></span>
-          <span class="pl-e">knob-label-color</span>=<span class="pl-s"><span class="pl-pds">"</span>{{knobLabelColor}}<span class="pl-pds">"</span></span>
-          <span class="pl-e">border-color</span>=<span class="pl-s"><span class="pl-pds">"</span>{{borderColor}}<span class="pl-pds">"</span></span>&gt;
-        &lt;/<span class="pl-ent">div</span>&gt;</pre>
-        </div>
-        
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>isDisabled<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-summarised</span>=<span class="pl-s"><span class="pl-pds">"</span>isSummarised<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-animated</span>=<span class="pl-s"><span class="pl-pds">"</span>isAnimated<span class="pl-pds">"</span></span>
+    <span class="pl-e">switch-size</span>=<span class="pl-s"><span class="pl-pds">"{{</span>switchSize<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">left-label</span>=<span class="pl-s"><span class="pl-pds">"{{</span>leftLabel<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">right-label</span>=<span class="pl-s"><span class="pl-pds">"{{</span>rightLabel<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">knob-label</span>=<span class="pl-s"><span class="pl-pds">"{{</span>knobLabel<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">left-label-color</span>=<span class="pl-s"><span class="pl-pds">"{{</span>leftLabelColor<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">right-label-color</span>=<span class="pl-s"><span class="pl-pds">"{{</span>rightLabelColor<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">left-value</span>=<span class="pl-s"><span class="pl-pds">"</span>leftValue<span class="pl-pds">"</span></span>
+    <span class="pl-e">right-value</span>=<span class="pl-s"><span class="pl-pds">"</span>rightValue<span class="pl-pds">"</span></span>
+    <span class="pl-e">knob-label-color</span>=<span class="pl-s"><span class="pl-pds">"{{</span>knobLabelColor<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">border-color</span>=<span class="pl-s"><span class="pl-pds">"{{</span>borderColor<span class="pl-pds">}}"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
         <p><em>Note:</em></p>
         <ul>
           <li>
@@ -99,128 +98,143 @@
 
 
         <h2><a id="demonstration" class="anchor" href="#demonstration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demonstration</h2>
-        <h2>Usage</h2>
         <p>Switch Value: {{switchModel}}</p>
 
         <h3><a id="demo_defaut" class="anchor" href="#demo_defaut" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h3>
-        <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
-            <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>&gt;
-        &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
-        <div toggle-switch-directive ng-model="switchModel"></div>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span> <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+        <br /><div toggle-switch-directive ng-model="switchModel"></div><br />
 
         <h3><a id="demo_ltext" class="anchor" href="#demo_ltext" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lables Text</h3>
-        <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
-            <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
-            <span class="pl-e">left-label</span>=<span class="pl-s"><span class="pl-pds">"</span>Yes<span class="pl-pds">"</span></span>
-            <span class="pl-e">right-label</span>=<span class="pl-s"><span class="pl-pds">"</span>No<span class="pl-pds">"</span></span>&gt;
-        &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
-        <div toggle-switch-directive ng-model="switchModel" left-label="Yes" right-label="No"></div>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">left-label</span>=<span class="pl-s"><span class="pl-pds">"</span>Yes<span class="pl-pds">"</span></span>
+    <span class="pl-e">right-label</span>=<span class="pl-s"><span class="pl-pds">"</span>No<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+        <br /><div toggle-switch-directive ng-model="switchModel" left-label="Yes" right-label="No"></div><br />
 
         <h3><a id="demo_ktext" class="anchor" href="#demo_ktext" aria-hidden="true"><span class="octicon octicon-link"></span></a>Knob Text</h3>
-        <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
-            <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
-            <span class="pl-e">knob-label</span>=<span class="pl-s"><span class="pl-pds">"</span>TV<span class="pl-pds">"</span></span>&gt;
-        &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
-        <div toggle-switch-directive ng-model="switchModel" knob-label="TV"></div>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">knob-label</span>=<span class="pl-s"><span class="pl-pds">"</span>TV<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+        <br /><div toggle-switch-directive ng-model="switchModel" knob-label="TV"></div><br />
 
         <h3><a id="demo_size" class="anchor" href="#demo_size" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sizes</h3>
-        <div class="highlight highlight-text-html-basic">
-          <pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
-            <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
-            <span class="pl-e">switch-size</span>=<span class="pl-s"><span class="pl-pds">"</span>xsmall<span class="pl-pds">"</span></span>&gt;
-            &lt;/<span class="pl-ent">div</span>&gt;
-          </pre>
-          <pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
-            <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
-            <span class="pl-e">switch-size</span>=<span class="pl-s"><span class="pl-pds">"</span>small<span class="pl-pds">"</span></span>&gt;
-            &lt;/<span class="pl-ent">div</span>&gt;
-          </pre>
-          <pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
-            <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
-            <span class="pl-e">switch-size</span>=<span class="pl-s"><span class="pl-pds">"</span>medium<span class="pl-pds">"</span></span>&gt;
-            &lt;/<span class="pl-ent">div</span>&gt;
-          </pre>
-          <pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
-            <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
-            <span class="pl-e">switch-size</span>=<span class="pl-s"><span class="pl-pds">"</span>large<span class="pl-pds">"</span></span>&gt;
-            &lt;/<span class="pl-ent">div</span>&gt;
-          </pre>
-          <pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
-            <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
-            <span class="pl-e">switch-size</span>=<span class="pl-s"><span class="pl-pds">"</span>xlarge<span class="pl-pds">"</span></span>&gt;
-            &lt;/<span class="pl-ent">div</span>&gt;
-          </pre>
-        </div>
-        <div toggle-switch-directive ng-model="switchModel" switch-size="xsmall"></div>
-        <div toggle-switch-directive ng-model="switchModel" switch-size="small"></div>
-        <div toggle-switch-directive ng-model="switchModel" switch-size="medium"></div>
-        <div toggle-switch-directive ng-model="switchModel" switch-size="large"></div>
-        <div toggle-switch-directive ng-model="switchModel" switch-size="xlarge"></div>
+<div class="highlight highlight-text-html-basic">
+  <pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">switch-size</span>=<span class="pl-s"><span class="pl-pds">"</span>xsmall<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre>
+  <pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">switch-size</span>=<span class="pl-s"><span class="pl-pds">"</span>small<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre>
+  <pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">switch-size</span>=<span class="pl-s"><span class="pl-pds">"</span>medium<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre>
+  <pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">switch-size</span>=<span class="pl-s"><span class="pl-pds">"</span>large<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre>
+  <pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">switch-size</span>=<span class="pl-s"><span class="pl-pds">"</span>xlarge<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre>
+</div>
+        <br /><div toggle-switch-directive ng-model="switchModel" switch-size="xsmall"></div>
+        <br /><div toggle-switch-directive ng-model="switchModel" switch-size="small"></div>
+        <br /><div toggle-switch-directive ng-model="switchModel" switch-size="medium"></div>
+        <br /><div toggle-switch-directive ng-model="switchModel" switch-size="large"></div>
+        <br /><div toggle-switch-directive ng-model="switchModel" switch-size="xlarge"></div><br />
 
-        <h2>Resize labels</h2>
+        <h3><a id="demo_resize" class="anchor" href="#demo_resize" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resize</h3>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">left-label</span>=<span class="pl-s"><span class="pl-pds">"</span>{{leftLabel}}<span class="pl-pds">"</span></span>
+    <span class="pl-e">knob-label</span>=<span class="pl-s"><span class="pl-pds">"</span>{{knobLabel}}<span class="pl-pds">"</span></span>
+    <span class="pl-e">right-label</span>=<span class="pl-s"><span class="pl-pds">"</span>{{rightLabel}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
         <div ng-init="leftLabel = 'On'; knobLabel = 'TV'; rightLabel='Off'">
+          <br />
           <div>
-            <input type="text" name="left label" ng-model="leftLabel">
-            <input type="text" name="knob" ng-model="knobLabel">
-            <input type="text" name="right label" ng-model="rightLabel">
-          </div></br>
+            <label>leftLabel:</label><input type="text" name="left label" ng-model="leftLabel"><br />
+            <label>knobLabel:</label><input type="text" name="knob" ng-model="knobLabel"><br />
+            <label>rightLabel:</label><input type="text" name="right label" ng-model="rightLabel">
+          </div><br />
           <div toggle-switch-directive ng-model="switchModel" left-label="{{leftLabel}}" knob-label="{{knobLabel}}" right-label="{{rightLabel}}"></div>
-        </div>
+        </div><br />
 
-        <h2>Colors</h2>
-        <div ng-init="borderColor = 'gray'; leftColor = 'blue'; knobColor = 'white'; rightColor='red'">
+        <h3><a id="demo_color" class="anchor" href="#demo_color" aria-hidden="true"><span class="octicon octicon-link"></span></a>Colors</h3>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">border-color</span>=<span class="pl-s"><span class="pl-pds">"</span>{{borderColor}}<span class="pl-pds">"</span></span>
+    <span class="pl-e">left-label-color</span>=<span class="pl-s"><span class="pl-pds">"</span>{{leftLabelColor}}<span class="pl-pds">"</span></span>
+    <span class="pl-e">knob-label-color</span>=<span class="pl-s"><span class="pl-pds">"</span>{{knobLabelColor}}<span class="pl-pds">"</span></span>
+    <span class="pl-e">right-label-color</span>=<span class="pl-s"><span class="pl-pds">"</span>{{rightLabelColor}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+        <div ng-init="borderColor = 'gray'; leftLabelColor = 'blue'; knobLabelColor = 'white'; rightLabelColor='red'">
+          <br />
           <div>
-            <h4>Border Color</h4>
-            <input type="text" name="border color" ng-model="borderColor">
-          </div>
+            <label>borderColor:</label><input type="text" name="border color" ng-model="borderColor"><br />
+            <label>leftLabelColor:</label><input type="text" name="left label color" ng-model="leftLabelColor"><br />
+            <label>knobLabelColor:</label><input type="text" name="knob label color" ng-model="knobLabelColor"><br />
+            <label>rightLabelColor:</label><input type="text" name="right label color" ng-model="rightLabelColor">
+          </div><br />
+          <div toggle-switch-directive ng-model="switchModel" border-color="{{borderColor}}" left-label-color="{{leftLabelColor}}" knob-label-color="{{knobLabelColor}}" right-label-color="{{rightLabelColor}}" ></div>
+        </div><br />
+
+        <h3><a id="demo_animate" class="anchor" href="#demo_animate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Animate</h3>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-animated</span>=<span class="pl-s"><span class="pl-pds">"</span>{{isAnimated}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+        <div ng-init="isAnimated = true">
+          <br />
+          <button ng-click="isAnimated = !isAnimated">Click me</button>
+          <p>isAnimated: {{isAnimated}}</p>
+          <div toggle-switch-directive ng-model="switchModel" is-animated="isAnimated"></div>
+        </div><br />
+
+        <h3><a id="demo_disabled" class="anchor" href="#demo_disabled" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disabled</h3>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>{{isDisabled}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+        <div ng-init="isDisabled = true">
+          <br />
+          <button ng-click="isDisabled = !isDisabled">Click me</button>
+          <p>isDisabled: {{isDisabled}}</p>
+          <div toggle-switch-directive ng-model="switchModel" is-disabled="isDisabled" ></div>
+        </div><br />
+
+        <h3><a id="demo_summarize" class="anchor" href="#demo_summarize" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summarize</h3>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-summarised</span>=<span class="pl-s"><span class="pl-pds">"</span>{{isSummarised}}<span class="pl-pds">"</span></span>
+    <span class="pl-e">knob-label</span>=<span class="pl-s"><span class="pl-pds">"</span>TV<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+        <div ng-init="isSummarised = false">
+          <br />
+          <button ng-click="isSummarised = !isSummarised">Click me</button>
+          <p>isSummarised: {{isSummarised}}</p>
+          <div toggle-switch-directive ng-model="switchModel" is-summarised="isSummarised" knob-label="TV"></div>
+        </div><br />
+
+        <h3><a id="demo_lvalue" class="anchor" href="#demo_lvalue" aria-hidden="true"><span class="octicon octicon-link"></span></a>Labels Value</h3>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModelValue<span class="pl-pds">"</span></span>
+    <span class="pl-e">left-value</span>=<span class="pl-s"><span class="pl-pds">"</span>{{leftValue}}<span class="pl-pds">"</span></span>
+    <span class="pl-e">right-value</span>=<span class="pl-s"><span class="pl-pds">"</span>{{rightValue}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+        <p>switchModelValue: {{switchModelValue}}</p>
+        <div ng-init="leftValue = true; rightValue = false">
           <div>
-            <h4>Labels Color</h4>
-            <input type="text" name="left label color" ng-model="leftColor">
-            <input type="text" name="knob label color" ng-model="knobColor">
-            <input type="text" name="right label color" ng-model="rightColor">
-          </div></br>
-          <div toggle-switch-directive ng-model="switchModel" border-color="{{borderColor}}" left-label-color="{{leftColor}}" knob-label-color="{{knobColor}}" right-label-color="{{rightColor}}" ></div>
+            <label>leftValue:</label><input type="text" name="left value" ng-model="leftValue"><br />
+            <label>rightValue:</label><input type="text" name="right value" ng-model="rightValue">
+          </div><br />
+          <div toggle-switch-directive ng-model="switchModelValue" left-value="leftValue" right-value="rightValue"></div>
         </div>
-
-        <h2>Animate</h2>
-        <div ng-init="animate = true">
-          <button ng-click="animate = !animate">Click me</button>
-          <p>Animate toggle-switch: {{animate}}</p>
-          <div toggle-switch-directive is-animated="animate" ng-model="switchModel"></div>
-        </div>
-
-        <h2>Disabled</h2>
-        <div ng-init="disabled = true">
-          <button ng-click="disabled = !disabled">Click me</button>
-          <p>Disabled toggle-switch: {{disabled}}</p>
-          <div toggle-switch-directive is-disabled="disabled" ng-model="switchModel"></div>
-        </div>
-
-        <h2>Summarize</h2>
-        <div ng-init="summarize = false">
-          <button ng-click="summarize = !summarize">Click me</button>
-          <p>Summarize toggle-switch: {{summarize}}</p>
-          <div toggle-switch-directive is-summarised="summarize" ng-model="switchModel" knob-label="TV"></div>
-        </div>
-
-        <h2>Value labels</h2>
-        <p>Switch Value: {{switchModelValue}}</p>
-        <div ng-init="leftLV1 = true; rightLV1 = false">
-          <div>
-            <input type="text" name="left value" ng-model="leftLV1">
-            <input type="text" name="right value" ng-model="rightLV1">
-          </div></br>
-          <div toggle-switch-directive ng-model="switchModelValue" left-value="leftLV1" right-value="rightLV1"></div>
-        </div></br>
-        <div ng-init="leftLV2 = true; rightLV2 = false">
-          <div>
-            <input type="text" name="left value" ng-model="leftLV2">
-            <input type="text" name="right value" ng-model="rightLV2">
-          </div></br>
-          <div toggle-switch-directive ng-model="switchModelValue" left-value="leftLV2" right-value="rightLV2"></div>
-        </div>
-
-
 
 
         <h2><a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributors</h2>
@@ -240,8 +254,10 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="https://github.com/Scille/sc-toggle-switch/blob/master/release/scripts/toggle_switch.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
     <script type="text/javascript" src="javascripts/main.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/Scille/sc-toggle-switch/master/release/scripts/toggle_switch.min.js"></script>
 
   </body>
 </html>
