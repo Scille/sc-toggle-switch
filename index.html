@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="sc-toggle-switch : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>sc-toggle-switch</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Scille/sc-toggle-switch">View on GitHub</a>
+
+          <h1 id="project_title">sc-toggle-switch</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Scille/sc-toggle-switch/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Scille/sc-toggle-switch/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="scille-toggle-switch-for-angularjs" class="anchor" href="#scille-toggle-switch-for-angularjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scille Toggle Switch (for Angularjs)</h1>
+
+<p>Toggle Switches for AngularJS. This library is created by DUBOIS Romain and maintained by the Scille team.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3>
+<a id="required-node-tools" class="anchor" href="#required-node-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Required Node Tools</h3>
+
+<p>In order to get started, you'll want to install some tools globally.</p>
+
+<div class="highlight highlight-source-shell"><pre>$ sudo apt-get install nodejs
+$ sudo ln /usr/bin/nodejs /usr/bin/node
+
+$ sudo apt-get install npm
+$ sudo npm install -g bower grunt-cli coffee-script karma-cli protractor</pre></div>
+
+<h3>
+<a id="download-git-repository" class="anchor" href="#download-git-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download git repository</h3>
+
+<div class="highlight highlight-source-shell"><pre>$ git clone https://github.com/Scille/sc-toggle-switch
+$ <span class="pl-c1">cd</span> sc-toggle-switch
+$ npm install
+$ bower install</pre></div>
+
+<h3>
+<a id="install-with-bower" class="anchor" href="#install-with-bower" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install with bower</h3>
+
+<div class="highlight highlight-source-shell"><pre>$ bower install sc-toggle-switch --save-dev</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a id="registration" class="anchor" href="#registration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Registration</h3>
+
+<p>To be able to use the directive, you need to register the sc-toggle-switch module as a dependency:</p>
+
+<div class="highlight highlight-source-js"><pre>angular.module(<span class="pl-s"><span class="pl-pds">'</span>yourModule<span class="pl-pds">'</span></span>, [<span class="pl-s"><span class="pl-pds">'</span>sc-toggle-switch<span class="pl-pds">'</span></span>
+    <span class="pl-c">// other dependencies</span>
+]);</pre></div>
+
+<h3>
+<a id="directive" class="anchor" href="#directive" aria-hidden="true"><span class="octicon octicon-link"></span></a>Directive</h3>
+
+<p>The directive can work on both attribute and element levels.</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>isDisabled<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-summarised</span>=<span class="pl-s"><span class="pl-pds">"</span>isSummarised<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-animated</span>=<span class="pl-s"><span class="pl-pds">"</span>isAnimated<span class="pl-pds">"</span></span>
+    <span class="pl-e">switch-size</span>=<span class="pl-s"><span class="pl-pds">"</span>{{switchSize}}<span class="pl-pds">"</span></span>
+    <span class="pl-e">left-label</span>=<span class="pl-s"><span class="pl-pds">"</span>{{leftLabel}}<span class="pl-pds">"</span></span>
+    <span class="pl-e">right-label</span>=<span class="pl-s"><span class="pl-pds">"</span>{{rightLabel}}<span class="pl-pds">"</span></span>
+    <span class="pl-e">knob-label</span>=<span class="pl-s"><span class="pl-pds">"</span>{{knobLabel}}<span class="pl-pds">"</span></span>
+    <span class="pl-e">left-label-color</span>=<span class="pl-s"><span class="pl-pds">"</span>{{leftLabelColor}}<span class="pl-pds">"</span></span>
+    <span class="pl-e">right-label-color</span>=<span class="pl-s"><span class="pl-pds">"</span>{{rightLabelColor}}<span class="pl-pds">"</span></span>
+    <span class="pl-e">left-value</span>=<span class="pl-s"><span class="pl-pds">"</span>leftValue<span class="pl-pds">"</span></span>
+    <span class="pl-e">right-value</span>=<span class="pl-s"><span class="pl-pds">"</span>rightValue<span class="pl-pds">"</span></span>
+    <span class="pl-e">knob-label-color</span>=<span class="pl-s"><span class="pl-pds">"</span>{{knobLabelColor}}<span class="pl-pds">"</span></span>
+    <span class="pl-e">border-color</span>=<span class="pl-s"><span class="pl-pds">"</span>{{borderColor}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<p><em>Note:</em></p>
+
+<ul>
+<li>
+<strong>ng-model:</strong> Will try to bind to the property given by evaluating the expression on the current scope. If the property doesn't already exist on this scope, it will be created implicitly and added to the scope.</li>
+<li>
+<strong>is-disabled:</strong> Determines if the switch is disabled or not. </li>
+<li>
+<strong>is-summarised:</strong> Determines if the switch is summarised or not.</li>
+<li>
+<strong>is-animated:</strong> Determines if the switch animates when toggled.</li>
+<li>
+<strong>switch-size:</strong> Sets the size class. It can be <code>xsmall</code>, <code>small</code>, <code>medium</code> (as default), <code>large</code>, <code>xlarge</code>.</li>
+<li>
+<strong>left-label:</strong> Sets the left label text.</li>
+<li>
+<strong>right-label:</strong> Sets the right label text.</li>
+<li>
+<strong>knob-label:</strong> Sets the knob label text.</li>
+<li>
+<strong>left-label-color:</strong> Sets the left label background color.</li>
+<li>
+<strong>right-label-color:</strong> Sets the right label background color.</li>
+<li>
+<strong>left-value:</strong> Sets the left position value. It is <code>true</code> as default.</li>
+<li>
+<strong>right-value:</strong> Sets the right position value. It is <code>false</code> as default.</li>
+<li>
+<strong>knob-label-color:</strong> Sets the knob label background color.</li>
+<li>
+<strong>border-color:</strong> Sets the border color.</li>
+</ul>
+
+<h2>
+<a id="directory-structure" class="anchor" href="#directory-structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Directory structure</h2>
+
+<pre><code>sc-toggle-switch/
+    |
+    |- demo/                    -&gt; Contains JavaScript file and HTML file. (Used by Grunt to run the demonstration)
+    |
+    |- release/                 -&gt; Contains the production minified release of the app.
+    |   |- css/                     -&gt; Minified CSS file.
+    |   '- script/                  -&gt; Minified JavaScript file.
+    |
+    |- src/                     -&gt; Contains CoffeeScript sources, LESS styles and other assets.
+    |   |- coffee/                  -&gt; CoffeeScript sources.
+    |   |- html_template/           -&gt; HTML that contains Angular-specific elements and attributes.
+    |   '- less/                    -&gt; LESS sources.
+    |
+    '- test/                    -&gt; Contains tests for the application.
+        |- e2e/                     -&gt; End-To-End tests for AngularJS applications. (Protractor)
+        '- unit/                    -&gt; Unit tests for AngularJS components. (Karma)
+</code></pre>
+
+<h2>
+<a id="demonstration" class="anchor" href="#demonstration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demonstration</h2>
+
+<p>Launch the demo with:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ grunt serve</pre></div>
+
+<h2>
+<a id="running-tests" class="anchor" href="#running-tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running tests</h2>
+
+<h3>
+<a id="unit-tests-karma" class="anchor" href="#unit-tests-karma" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unit Tests (Karma)</h3>
+
+<p>Executing Unit Tests with Grunt:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ grunt unit-test</pre></div>
+
+<p>Executing Unit Tests by Karma:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ karma start ./test/karma_conf.coffee --single-run</pre></div>
+
+<p>It will also generate HTML test coverage report inside ./.tmp/report-html directory.</p>
+
+<h3>
+<a id="end-to-end-tests-protractor" class="anchor" href="#end-to-end-tests-protractor" aria-hidden="true"><span class="octicon octicon-link"></span></a>End-To-End Tests (Protractor)</h3>
+
+<p>Executing End-To-End Tests with Grunt:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ grunt e2e-test</pre></div>
+
+<p>Executing End-To-End Tests by Protractor:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ protractor ./test/protractor_conf.coffee</pre></div>
+
+<h2>
+<a id="other-toggle-switch" class="anchor" href="#other-toggle-switch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other toggle-switch</h2>
+
+<ul>
+<li>see <a href="https://github.com/frapontillo/angular-bootstrap-switch">angular-bootstrap-switch</a>
+</li>
+<li>see <a href="https://github.com/nostalgiaz/bootstrap-switch">bootstrap-switch</a>
+</li>
+<li>see <a href="https://github.com/JumpLink/angular-toggle-switch">angular-toggle-switch</a>
+</li>
+<li>see <a href="https://github.com/cgarvis/angular-toggle-switch">angular-toggle-switch</a>
+</li>
+</ul>
+
+<h2>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributors</h2>
+
+<p>DUBOIS Romain, Engineer R&amp;D at <a href="http://scille.eu/">SCILLE</a>
+<a href="mailto:dubois.rom@gmail.com">dubois.rom@gmail.com</a></p>
+
+<p>MEZINO Vincent, Engineer R&amp;D at <a href="http://scille.eu">SCILLE</a>
+<a href="mailto:vincent.mezino@gmail.com">vincent.mezino@gmail.com</a></p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Licensed under the MIT License</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">sc-toggle-switch maintained by <a href="https://github.com/Scille">Scille</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
