@@ -4,9 +4,12 @@
   <title>Toggle Switch Example</title>
 
   <!-- bower:css -->
-  <!-- endbower -->
+  <!-- bower installed css files will go here... -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- built css files will go here... -->
+  <!-- endinject -->
 
-  <link href="css/toggle_switch.min.css" media="all" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -17,20 +20,20 @@
   <p>Switch Value: {{switchModel}}</p>
 
   <h2>Default</h2>
-  <div toggle-switch-directive ng-model="switchModel"></div>
+  <div sc-toggle-switch-directive ng-model="switchModel"></div>
 
   <h2>Text</h2>
-  <div toggle-switch-directive ng-model="switchModel" left-label="Yes" right-label="No"></div>
+  <div sc-toggle-switch-directive ng-model="switchModel" left-label="Yes" right-label="No"></div>
 
   <h2>Knob Text</h2>
-  <div toggle-switch-directive ng-model="switchModel" knob-label="TV"></div>
+  <div sc-toggle-switch-directive ng-model="switchModel" knob-label="TV"></div>
 
   <h2>Sizes</h2>
-  <span toggle-switch-directive switch-size="xsmall" ng-model="switchModel"></span>
-  <span toggle-switch-directive switch-size="small" ng-model="switchModel"></span>
-  <span toggle-switch-directive switch-size="medium" ng-model="switchModel"></span>
-  <span toggle-switch-directive switch-size="large" ng-model="switchModel"></span>
-  <span toggle-switch-directive switch-size="xlarge" ng-model="switchModel"></span>
+  <span sc-toggle-switch-directive switch-size="xsmall" ng-model="switchModel"></span>
+  <span sc-toggle-switch-directive switch-size="small" ng-model="switchModel"></span>
+  <span sc-toggle-switch-directive switch-size="medium" ng-model="switchModel"></span>
+  <span sc-toggle-switch-directive switch-size="large" ng-model="switchModel"></span>
+  <span sc-toggle-switch-directive switch-size="xlarge" ng-model="switchModel"></span>
 
   <h2>Resize labels</h2>
   <div ng-init="leftLabel = 'On'; knobLabel = 'TV'; rightLabel='Off'">
@@ -39,7 +42,7 @@
       <input type="text" name="knob" ng-model="knobLabel">
       <input type="text" name="right label" ng-model="rightLabel">
     </div></br>
-    <div toggle-switch-directive ng-model="switchModel" left-label="{{leftLabel}}" knob-label="{{knobLabel}}" right-label="{{rightLabel}}"></div>
+    <div sc-toggle-switch-directive ng-model="switchModel" left-label="{{leftLabel}}" knob-label="{{knobLabel}}" right-label="{{rightLabel}}"></div>
   </div>
 
   <h2>Colors</h2>
@@ -54,28 +57,28 @@
       <input type="text" name="knob label color" ng-model="knobColor">
       <input type="text" name="right label color" ng-model="rightColor">
     </div></br>
-    <div toggle-switch-directive ng-model="switchModel" border-color="{{borderColor}}" left-label-color="{{leftColor}}" knob-label-color="{{knobColor}}" right-label-color="{{rightColor}}" ></div>
+    <div sc-toggle-switch-directive ng-model="switchModel" border-color="{{borderColor}}" left-label-color="{{leftColor}}" knob-label-color="{{knobColor}}" right-label-color="{{rightColor}}" ></div>
   </div>
 
   <h2>Animate</h2>
   <div ng-init="animate = true">
     <button ng-click="animate = !animate">Click me</button>
     <p>Animate toggle-switch: {{animate}}</p>
-    <div toggle-switch-directive is-animated="animate" ng-model="switchModel"></div>
+    <div sc-toggle-switch-directive is-animated="animate" ng-model="switchModel"></div>
   </div>
 
   <h2>Disabled</h2>
   <div ng-init="disabled = true">
     <button ng-click="disabled = !disabled">Click me</button>
     <p>Disabled toggle-switch: {{disabled}}</p>
-    <div toggle-switch-directive is-disabled="disabled" ng-model="switchModel"></div>
+    <div sc-toggle-switch-directive is-disabled="disabled" ng-model="switchModel"></div>
   </div>
 
   <h2>Summarize</h2>
   <div ng-init="summarize = false">
     <button ng-click="summarize = !summarize">Click me</button>
     <p>Summarize toggle-switch: {{summarize}}</p>
-    <div toggle-switch-directive is-summarised="summarize" ng-model="switchModel" knob-label="TV"></div>
+    <div sc-toggle-switch-directive is-summarised="summarize" ng-model="switchModel" knob-label="TV"></div>
   </div>
 
   <h2>Value labels</h2>
@@ -85,23 +88,23 @@
       <input type="text" name="left value" ng-model="leftLV1">
       <input type="text" name="right value" ng-model="rightLV1">
     </div></br>
-    <div toggle-switch-directive ng-model="switchModelValue" left-value="leftLV1" right-value="rightLV1"></div>
+    <div sc-toggle-switch-directive ng-model="switchModelValue" left-value="leftLV1" right-value="rightLV1"></div>
   </div></br>
   <div ng-init="leftLV2 = true; rightLV2 = false">
     <div>
       <input type="text" name="left value" ng-model="leftLV2">
       <input type="text" name="right value" ng-model="rightLV2">
     </div></br>
-    <div toggle-switch-directive ng-model="switchModelValue" left-value="leftLV2" right-value="rightLV2"></div>
+    <div sc-toggle-switch-directive ng-model="switchModelValue" left-value="leftLV2" right-value="rightLV2"></div>
   </div>
 
   <!-- bower:js -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-  <script src="bower_components/angular-mocks/angular-mocks.js"></script>
-  <!-- endbower -->
-
+  <!-- bower installed scripts will go here... -->
+  <!-- endinject -->
   <script type="text/javascript" src="app.js"></script>
-  <script type="text/javascript" src="scripts/toggle_switch.min.js"></script>
+  <!-- inject:js -->
+  <!-- app scripts will go here... -->
+  <!-- endinject -->
+
 </body>
 </html>

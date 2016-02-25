@@ -1,12 +1,12 @@
 'use strict'
 
-angular.module('sc-toggle-switch', ['sc-toggle-switch-template'])
-  .directive 'toggleSwitchDirective', ($templateCache) ->
+angular.module('sc-toggle-switch', ['toggle_switchTemplate'])
+  .directive 'scToggleSwitchDirective', -> {
     restrict: 'EA'
-    templateUrl: 'src/html_template/toggle_switch_template.html'
-    controller: 'toggleSwitchController'
+    templateUrl: 'script/toggle_switch_template.html'
+    controller: 'scToggleSwitchController'
     require: 'ngModel'
-    scope:
+    scope: {
       isDisabled: '=?'
       isSummarised: '=?'
       isAnimated: '=?'
@@ -20,6 +20,7 @@ angular.module('sc-toggle-switch', ['sc-toggle-switch-template'])
       rightValue: '=?'
       knobLabelColor: '@'
       borderColor: '@'
+    }
 
     compile: (tElement, tAttrs) ->
       if (angular.isUndefined(tAttrs.isSummarised))
@@ -33,7 +34,7 @@ angular.module('sc-toggle-switch', ['sc-toggle-switch-template'])
 
       if (angular.isUndefined(tAttrs.switchSize))
         tAttrs.switchSize = "switch-medium"
-      else if (!tAttrs.switchSize.match("^(xsmall|small|medium|large|xlarge)$"))
+      else if (not tAttrs.switchSize.match("^(xsmall|small|medium|large|xlarge)$"))
         console.log("Error: switch-size must xsmall|small|medium|large|xlarge")
         tAttrs.switchSize = "switch-medium"
       else
@@ -72,9 +73,9 @@ angular.module('sc-toggle-switch', ['sc-toggle-switch-template'])
         # The $formatters pipeline. Convert a real model value into a value our
         # view can use.
         ngModelCtrl.$formatters.push (modelValue) ->
-          if (modelValue == scope.leftValue)
+          if (modelValue is scope.leftValue)
             return true
-          else if (modelValue == scope.rightValue)
+          else if (modelValue is scope.rightValue)
             return false
 
         # The $parsers Pipeline. Converts the $viewValue into the $modelValue.
@@ -96,16 +97,16 @@ angular.module('sc-toggle-switch', ['sc-toggle-switch-template'])
             scope.switchStatus = "switch-undef"
           ngModelCtrl.$setViewValue(value)
 
-
-  .controller 'toggleSwitchController', ($scope) ->
+  }
+  .controller 'scToggleSwitchController', ($scope) ->
 
     ### Define localModel to bind model on 'true/false' value ###
     $scope.localModel = undefined
 
     ### Update model when we click on the toggle-switch. ###
     $scope.updateModel = ->
-      if (!$scope.isDisabled)
-        $scope.localModel = !$scope.localModel
+      if (not $scope.isDisabled)
+        $scope.localModel = not $scope.localModel
 
     ### Resize labels field Functions ###
     max = null
@@ -113,20 +114,20 @@ angular.module('sc-toggle-switch', ['sc-toggle-switch-template'])
     $scope.rightLabelStr = null
     $scope.knobLabelStr = null
 
-    $scope.completeWithSpace = () ->
+    $scope.completeWithSpace = ->
       $scope.leftLabelStr = if $scope.leftLabel? then angular.copy($scope.leftLabel) else ''
       $scope.rightLabelStr = if $scope.rightLabel? then angular.copy($scope.rightLabel) else ''
       $scope.knobLabelStr = if $scope.knobLabel? then angular.copy($scope.knobLabel) else ''
       max = Math.max($scope.leftLabelStr.length, $scope.rightLabelStr.length, $scope.knobLabelStr.length)
 
-      if ($scope.leftLabelStr.length == max)
+      if ($scope.leftLabelStr.length is max)
         while ($scope.rightLabelStr.length < max)
           $scope.rightLabelStr = '\u00a0' + $scope.rightLabelStr + '\u00a0'
 
         while ($scope.knobLabelStr.length < max)
           $scope.knobLabelStr = '\u00a0' + $scope.knobLabelStr + '\u00a0'
 
-      else if ($scope.rightLabelStr.length == max)
+      else if ($scope.rightLabelStr.length is max)
         while ($scope.leftLabelStr.length < max)
           $scope.leftLabelStr = '\u00a0' + $scope.leftLabelStr + '\u00a0'
 

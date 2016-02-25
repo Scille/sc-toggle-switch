@@ -12,10 +12,10 @@ module.exports = (config) ->
       'bower_components/angular-mocks/angular-mocks.js'
 
       # include html files
-      'src/html_template/toggle_switch_template.html'
+      'src/script/*.html'
 
       # include coffee files
-      'src/coffee/toggle_switch.coffee'
+      'src/script/*.coffee'
 
       # include unit test specs
       'test/unit/*.coffee'
@@ -59,8 +59,8 @@ module.exports = (config) ->
 
     # Map of preprocessors that is used mostly for plugins
     preprocessors:
-      'src/html_template/toggle_switch_template.html': ['ng-html2js']
-      'src/coffee/toggle_switch.coffee': ['coffee', 'coverage']
+      'src/script/*.html': ['ng-html2js']
+      'src/script/*.coffee': ['coffee', 'coverage']
       'test/unit/*.coffee': ['coffee']
 
     # Which plugins to enable
@@ -77,7 +77,15 @@ module.exports = (config) ->
 
     # Plugin settings
     ngHtml2JsPreprocessor:
-      moduleName: 'sc-toggle-switch-template'
+      moduleName: (htmlPath, originalPath) ->
+        pathParts = htmlPath.split('/')
+        file = pathParts[pathParts.length - 1]
+        file = file.replace('_template.html', 'Template')
+        return file
+
+      cacheIdFromPath: (originalPath) ->
+        file = originalPath.replace('src/', '')
+        return file
 
     coverageReporter:
       dir: '.tmp/'

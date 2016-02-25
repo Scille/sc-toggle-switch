@@ -7,15 +7,14 @@
     "Vincent Mézino <vincent.mezino@gmail.com>"
   ],
   "main": [
-    "./release/scripts/toggle_switch.min.js",
-    "./release/css/toggle_switch.min.css"
+    "sc-toggle-switch.min.js",
+    "sc-toggle-switch.min.css"
   ],
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "test",
-    "tests"
+    "test"
   ],
   "dependencies": {
     "angular-bootstrap": "~0.13.4",

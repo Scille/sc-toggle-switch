@@ -13,7 +13,7 @@ $ sudo apt-get install nodejs
 $ sudo ln /usr/bin/nodejs /usr/bin/node
 
 $ sudo apt-get install npm
-$ sudo npm install -g bower grunt-cli coffee-script karma-cli protractor
+$ sudo npm install -g bower gulp coffee-script karma-cli protractor
 ```
 
 ### Download git repository
@@ -67,7 +67,7 @@ The directive can work on both attribute and element levels.
 
 *Note:*
 * **ng-model:** Will try to bind to the property given by evaluating the expression on the current scope. If the property doesn't already exist on this scope, it will be created implicitly and added to the scope.
-* **is-disabled:** Determines if the switch is disabled or not. 
+* **is-disabled:** Determines if the switch is disabled or not.
 * **is-summarised:** Determines if the switch is summarised or not.
 * **is-animated:** Determines if the switch animates when toggled.
 * **switch-size:** Sets the size class. It can be `xsmall`, `small`, `medium` (as default), `large`, `xlarge`.
@@ -90,13 +90,12 @@ sc-toggle-switch/
     |- demo/                    -> Contains JavaScript file and HTML file. (Used by Grunt to run the demonstration)
     |
     |- release/                 -> Contains the production minified release of the app.
-    |   |- css/                     -> Minified CSS file.
-    |   '- script/                  -> Minified JavaScript file.
+    |   |- sc-toggle-switch.min.css          -> Minified CSS file.
+    |   '- sc-toggle-switch.min.js           -> Minified JavaScript file.
     |
     |- src/                     -> Contains CoffeeScript sources, LESS styles and other assets.
-    |   |- coffee/                  -> CoffeeScript sources.
-    |   |- html_template/           -> HTML that contains Angular-specific elements and attributes.
-    |   '- less/                    -> LESS sources.
+    |   |- script/                  -> CoffeeScript sources and HTML that contains Angular-specific elements and attributes.
+    |   '- style/                   -> LESS sources.
     |
     '- test/                    -> Contains tests for the application.
         |- e2e/                     -> End-To-End tests for AngularJS applications. (Protractor)
@@ -106,9 +105,9 @@ sc-toggle-switch/
 
 ## Demonstration
 
-Executing demo  with Grunt:
+Executing demo  with Gulp:
 ```bash
-$ grunt serve
+$ gulp serve
 ```
 
 Executing demo on GitHub Pages:
@@ -119,9 +118,9 @@ Executing demo on GitHub Pages:
 
 ### Unit Tests (Karma)
 
-Executing Unit Tests with Grunt:
+Executing Unit Tests with Gulp:
 ```bash
-$ grunt unit-test
+$ gulp unit-test
 ```
 
 Executing Unit Tests by Karma:
@@ -133,9 +132,9 @@ It will also generate HTML test coverage report inside ./.tmp/report-html direct
 
 ### End-To-End Tests (Protractor)
 
-Executing End-To-End Tests with Grunt:
+Executing End-To-End Tests with Gulp:
 ```bash
-$ grunt e2e-test
+$ gulp e2e-test
 ```
 
 Executing End-To-End Tests by Protractor:

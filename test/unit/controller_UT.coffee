@@ -8,7 +8,7 @@ describe 'Controllers ::', ->
   beforeEach(module('sc-toggle-switch'))
 
   # Store references to $controller and $rootScope, so they are available to all tests in this describe block
-  describe 'toggleSwitchController\n', ->
+  describe 'scToggleSwitchController\n', ->
     $controller = undefined
     $rootScope = undefined
 
@@ -19,10 +19,10 @@ describe 'Controllers ::', ->
     )
 
 
-    ### TEST about toggleSwitchController ###
+    ### TEST about scToggleSwitchController ###
     it 'Should be defined', ->
       scope = $rootScope.$new()
-      controller = $controller('toggleSwitchController', $scope: scope)
+      controller = $controller('scToggleSwitchController', $scope: scope)
       expect(controller).toBeDefined()
 
 
@@ -33,7 +33,7 @@ describe 'Controllers ::', ->
 
       beforeEach ->
         scope = $rootScope.$new()
-        controller = $controller('toggleSwitchController', $scope: scope)
+        controller = $controller('scToggleSwitchController', $scope: scope)
 
       it 'Update model value when we click on the toggle-switch', ->
         # init: $scope.localModel = undefined
@@ -66,7 +66,7 @@ describe 'Controllers ::', ->
 
       beforeEach ->
         scope = $rootScope.$new()
-        controller = $controller('toggleSwitchController', $scope: scope)
+        controller = $controller('scToggleSwitchController', $scope: scope)
 
       it 'Complete leftLabelStr and rightLabelStr with spaces', ->
         # initialisation
