@@ -170,7 +170,7 @@ gulp.task 'release', ->
 # Unit Testing with Karma
 gulp.task 'unit-test', (done) ->
   new Server({
-    configFile: "#{paths.test}/karma_conf.coffee",
+    configFile: __dirname + "/#{paths.test}/karma_conf.coffee",
     singleRun: true
   }, done).start()
 
