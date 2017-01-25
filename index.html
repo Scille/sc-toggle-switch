@@ -209,16 +209,25 @@
         </div><br />
 
         <h3><a id="demo_summarize" class="anchor" href="#demo_summarize" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summarize</h3>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-toggle-switch-directive</span>
+<div class="highlight highlight-text-html-basic">
+  <pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-toggle-switch-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
     <span class="pl-e">is-summarised</span>=<span class="pl-s"><span class="pl-pds">"</span>{{isSummarised}}<span class="pl-pds">"</span></span>
     <span class="pl-e">knob-label</span>=<span class="pl-s"><span class="pl-pds">"</span>TV<span class="pl-pds">"</span></span>&gt;
-&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+&lt;/<span class="pl-ent">div</span>&gt;</pre>
+   <pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-toggle-switch-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>switchModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-summarised</span>=<span class="pl-s"><span class="pl-pds">"</span>{{isSummarised}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre>
+</div>
         <div ng-init="isSummarised = false">
           <br />
           <button ng-click="isSummarised = !isSummarised">Click me</button>
           <p>isSummarised: {{isSummarised}}</p>
           <div sc-toggle-switch-directive ng-model="switchModel" is-summarised="isSummarised" knob-label="TV"></div>
+          <br />
+          <label>TV</label>
+          <div sc-toggle-switch-directive ng-model="switchModel" is-summarised="isSummarised"></div>
         </div><br />
 
         <h3><a id="demo_lvalue" class="anchor" href="#demo_lvalue" aria-hidden="true"><span class="octicon octicon-link"></span></a>Labels Value</h3>
